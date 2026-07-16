@@ -2,14 +2,6 @@ import { useReveal } from '../hooks/useReveal';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
-const organizations = [
-  'ECV Paris',
-  'Digital College',
-  'EDC Paris Business School',
-  'Ascencia',
-  'École Conte',
-];
-
 const topics = [
   'IA générative',
   'Prompt Engineering',
@@ -103,20 +95,12 @@ export function TeachingSection() {
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
               Établissements
             </p>
-            <ul className="mt-5 space-y-3">
-              {organizations.map((org) => (
-                <li
-                  key={org}
-                  className="flex items-baseline gap-3 text-base text-ink md:text-lg"
-                >
-                  <span
-                    aria-hidden="true"
-                    className="h-1.5 w-1.5 shrink-0 rounded-full bg-primary-green"
-                  />
-                  {org}
-                </li>
-              ))}
-            </ul>
+            <img
+              src="/partners/schools-light.webp"
+              alt="ECV Paris, Digital College, EDC Paris Business School, Ascencia, École Conte"
+              className="mt-5 w-full"
+              loading="lazy"
+            />
 
             <p className="mt-10 text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
               Sujets enseignés

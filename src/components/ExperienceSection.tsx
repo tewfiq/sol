@@ -29,6 +29,18 @@ export function ExperienceSection() {
             <ExperienceCard key={exp.organization} experience={exp} />
           ))}
         </div>
+
+        <div className="mt-16 border-t border-white/[0.08] pt-10">
+          <p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-sage/50">
+            Entreprises & organisations accompagnées
+          </p>
+          <img
+            src="/partners/partners-dark.webp"
+            alt="Logos des entreprises et organisations accompagnées"
+            className="w-full opacity-55"
+            loading="lazy"
+          />
+        </div>
       </div>
     </section>
   );
