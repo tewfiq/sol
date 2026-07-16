@@ -115,7 +115,7 @@ export function ApproachCardsSection() {
                           type="button"
                           onClick={() => handleNavClick(i)}
                           aria-current={active ? 'true' : undefined}
-                          className={`group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-medium transition-colors duration-300 ${
+                          className={`group flex w-full items-center gap-3 rounded-2xl px-4 py-3 text-left text-sm font-medium transition-colors duration-300 ${
                             active
                               ? 'bg-black/25 text-off-white'
                               : 'text-off-white/40 hover:bg-black/15 hover:text-off-white/70'
@@ -155,7 +155,7 @@ export function ApproachCardsSection() {
               <button
                 type="button"
                 onClick={handleCta}
-                className="mt-5 rounded-xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="mt-5 rounded-2xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
                 {ft('Parler d’un contexte')}
               </button>
@@ -175,7 +175,7 @@ export function ApproachCardsSection() {
               <button
                 type="button"
                 onClick={handleCta}
-                className="rounded-xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90"
+                className="rounded-2xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90"
               >
                 {ft('Parler d’un contexte')}
               </button>

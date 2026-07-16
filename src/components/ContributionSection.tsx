@@ -52,7 +52,7 @@ export function ContributionSection() {
           capacité IA compréhensible, testable et durable.
         </FrenchText>
 
-        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-soft-border bg-soft-border sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
+        <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-soft-border bg-soft-border sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
           {contributions.map((c) => (
             <Card key={c.title} contribution={c} />
           ))}

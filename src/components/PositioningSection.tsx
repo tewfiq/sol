@@ -85,7 +85,7 @@ export function PositioningSection() {
             cardVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm md:p-10">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
               Ce que je fais
             </p>
@@ -108,7 +108,7 @@ export function PositioningSection() {
             </p>
           </div>
 
-          <div className="rounded-3xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm md:p-10">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.04] p-6 backdrop-blur-sm md:p-10">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
               La méthode
             </p>

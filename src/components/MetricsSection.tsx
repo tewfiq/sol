@@ -3,6 +3,19 @@ import { MetricCard } from './MetricCard';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
+const bento: { featured: boolean; className: string }[] = [
+  { featured: true, className: 'sm:col-span-2' },
+  { featured: false, className: '' },
+  { featured: false, className: '' },
+  { featured: false, className: '' },
+  { featured: false, className: '' },
+  { featured: true, className: 'sm:col-span-2' },
+  { featured: false, className: '' },
+  { featured: false, className: '' },
+  { featured: false, className: '' },
+  { featured: false, className: '' },
+];
+
 export function MetricsSection() {
   return (
     <section id="preuves" className="bg-cream px-6 py-20 md:px-10 md:py-32">
@@ -11,23 +24,28 @@ export function MetricsSection() {
           Pratique documentée
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          {ft('Une expertise mesurée par l’usage.')}
+          {ft('Une expertise mesurée par l\u2019usage.')}
         </h2>
         <div className="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-ink/70 md:text-lg">
           <FrenchText as="p">
             Dans un domaine où les repères restent encore limités, ces
-            indicateurs documentent une pratique quotidienne de l’IA générative,
-            du prototypage rapide, de l’expérimentation et de la transmission.
+            indicateurs documentent une pratique quotidienne de l'IA générative,
+            du prototypage rapide, de l'expérimentation et de la transmission.
           </FrenchText>
           <FrenchText as="p">
-            Ils ne remplacent pas la mesure d’impact métier. Ils donnent un
-            repère concret sur l’intensité de pratique.
+            Ils ne remplacent pas la mesure d'impact métier. Ils donnent un
+            repère concret sur l'intensité de pratique.
           </FrenchText>
         </div>
 
-        <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
-          {metrics.map((metric) => (
-            <MetricCard key={metric.label} metric={metric} />
+        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4 md:mt-16">
+          {metrics.map((metric, i) => (
+            <MetricCard
+              key={metric.label}
+              metric={metric}
+              featured={bento[i].featured}
+              className={bento[i].className}
+            />
           ))}
         </div>
       </div>

@@ -43,27 +43,27 @@ export function ContactSection() {
         <div className="mt-10 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
           <a
             href="mailto:tewfiqonline@gmail.com"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-full bg-off-white px-5 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl bg-off-white px-5 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
           >
             <span className="sm:hidden">{ft('Échanger')}</span>
             <span className="hidden sm:inline">{ft('Échanger avec Tewfiq')}</span>
           </a>
           <a
             href="/cv-tewfiq-ferahi.pdf"
-            className="inline-flex items-center justify-center whitespace-nowrap rounded-full border border-white/25 px-5 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
+            className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl border border-white/25 px-5 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
           >
             <FileText size={15} strokeWidth={1.5} aria-hidden="true" />
             <span className="ml-2">Voir le CV</span>
           </a>
         </div>
 
-        <dl className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
           {contactItems.map(({ icon: Icon, label, href }) => {
             const content = (
               <div className="flex items-center gap-3 bg-deep-green/40 px-5 py-5 backdrop-blur-sm">
                 <span
                   aria-hidden="true"
-                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-white/10 text-sage"
+                  className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white/10 text-sage"
                 >
                   <Icon size={16} strokeWidth={1.5} />
                 </span>

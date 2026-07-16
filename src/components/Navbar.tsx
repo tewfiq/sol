@@ -46,7 +46,7 @@ export function Navbar() {
           className="flex flex-col items-start"
           aria-label="Navigation principale"
         >
-          <div className="flex items-center gap-3 rounded-full bg-off-white/95 px-4 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:px-5 sm:py-2.5">
+          <div className="flex items-center gap-3 rounded-2xl bg-off-white/95 px-4 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:px-5 sm:py-2.5">
             <a
               href="#top"
               onClick={(e) => {

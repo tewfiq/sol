@@ -78,14 +78,14 @@ export function TeachingSection() {
               {topics.map((topic) => (
                 <span
                   key={topic}
-                  className="rounded-full border border-soft-border bg-light-surface px-3.5 py-1.5 text-sm font-medium text-ink"
+                  className="rounded-xl border border-soft-border bg-light-surface px-3.5 py-1.5 text-sm font-medium text-ink"
                 >
                   {topic}
                 </span>
               ))}
             </div>
 
-            <div className="mt-10 rounded-3xl bg-deep-green p-7 md:p-9">
+            <div className="mt-10 rounded-2xl bg-deep-green p-7 md:p-9">
               <p className="text-4xl font-medium text-off-white md:text-5xl">
                 1 500+
               </p>

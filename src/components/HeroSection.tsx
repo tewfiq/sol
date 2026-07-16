@@ -68,7 +68,7 @@ export function HeroSection() {
               {heroPills.map((pill) => (
                 <span
                   key={pill}
-                  className="rounded-full border border-white/20 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-off-white/90 backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs"
+                  className="rounded-lg border border-white/20 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-off-white/90 backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs"
                 >
                   {pill}
                 </span>
@@ -91,7 +91,7 @@ export function HeroSection() {
               <button
                 type="button"
                 onClick={handleCta}
-                className="whitespace-nowrap rounded-xl bg-off-white px-4 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5 sm:text-sm"
+                className="whitespace-nowrap rounded-2xl bg-off-white px-4 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5 sm:text-sm"
               >
                 <span className="sm:hidden">{ft('Voir mon approche')}</span>
                 <span className="hidden sm:inline">

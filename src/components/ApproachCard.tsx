@@ -44,7 +44,7 @@ export function ApproachCard({
 
         {/* Top meta row */}
         <div className="relative flex items-center justify-between gap-4">
-          <div className="inline-flex items-center gap-2.5 rounded-full border border-sage/30 bg-black/25 px-3.5 py-1.5 backdrop-blur-sm">
+          <div className="inline-flex items-center gap-2.5 rounded-xl border border-sage/30 bg-black/25 px-3.5 py-1.5 backdrop-blur-sm">
             <span className="font-mono text-xs font-semibold tabular-nums text-sage">
               {step}
             </span>
@@ -83,7 +83,7 @@ export function ApproachCard({
             {card.cues.map((cue) => (
               <li
                 key={cue}
-                className="rounded-full border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/80 backdrop-blur-sm md:text-[13px]"
+                className="rounded-lg border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/80 backdrop-blur-sm md:text-[13px]"
               >
                 {cue}
               </li>
