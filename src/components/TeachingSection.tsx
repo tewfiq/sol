@@ -64,12 +64,12 @@ export function TeachingSection() {
         </FrenchText>
       </div>
 
-      {/* Slideshow — full bleed */}
-      <div className="mt-12 md:mt-16">
+      {/* Slideshow */}
+      <div className="mx-auto mt-12 max-w-6xl overflow-hidden px-6 md:mt-16 md:px-10">
         <div
           className="flex gap-3 hover:[animation-play-state:paused]"
           style={{
-            animation: 'marquee 55s linear infinite',
+            animation: 'marquee 90s linear infinite',
             width: 'max-content',
           }}
           aria-hidden="true"
