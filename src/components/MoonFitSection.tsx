@@ -27,7 +27,7 @@ export function MoonFitSection() {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (
-    <section id="moon" className="bg-light-surface px-6 py-20 md:py-32">
+    <section id="moon" className="bg-light-surface px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
           Pourquoi MOON

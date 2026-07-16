@@ -5,7 +5,6 @@ interface SectionHeadingProps {
   eyebrow?: string;
   title: ReactNode;
   description?: ReactNode;
-  align?: 'left' | 'center';
   variant?: 'light' | 'dark';
   className?: string;
 }
@@ -14,15 +13,13 @@ export function SectionHeading({
   eyebrow,
   title,
   description,
-  align = 'left',
   variant = 'light',
   className = '',
 }: SectionHeadingProps) {
   const isDark = variant === 'dark';
-  const alignClass = align === 'center' ? 'text-center mx-auto' : 'text-left';
 
   return (
-    <div className={`${alignClass} max-w-3xl ${className}`}>
+    <div className={`max-w-3xl text-left ${className}`}>
       {eyebrow && (
         <FrenchText
           as="p"

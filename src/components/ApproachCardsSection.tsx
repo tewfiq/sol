@@ -88,7 +88,7 @@ export function ApproachCardsSection() {
         aria-hidden="true"
       />
 
-      <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-0">
+      <div className="mx-auto max-w-6xl px-6 py-20 md:px-10 md:py-28 lg:py-0">
         <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] xl:gap-24">
           {/* Left rail — locked to the section viewport */}
           <aside className="lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-between lg:py-28">

@@ -23,7 +23,7 @@ export function EducationSection() {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (
-    <section id="formation" className="bg-off-white px-6 py-20 md:py-28">
+    <section id="formation" className="bg-off-white px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
           Formation

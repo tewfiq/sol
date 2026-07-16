@@ -13,9 +13,9 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="bg-deep-green px-6 py-24 md:py-40"
+      className="bg-deep-green px-6 py-24 md:px-10 md:py-40"
     >
-      <div className="mx-auto max-w-5xl">
+      <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
           Contact
         </p>
@@ -89,7 +89,7 @@ export function ContactSection() {
         </FrenchText>
       </div>
 
-      <footer className="mx-auto mt-20 max-w-5xl border-t border-white/10 pt-8">
+      <footer className="mx-auto mt-20 max-w-6xl border-t border-white/10 pt-8">
         <p className="text-sm font-medium text-off-white">
           Tewfiq Ferahi — Senior AI Transformation Consultant
         </p>

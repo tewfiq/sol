@@ -25,7 +25,7 @@ export function ContributionSection() {
   return (
     <section
       id="contribution"
-      className="bg-off-white px-6 py-20 md:py-32"
+      className="bg-off-white px-6 py-20 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">

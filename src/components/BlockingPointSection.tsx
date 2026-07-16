@@ -18,7 +18,7 @@ export function BlockingPointSection() {
   return (
     <section
       id="blocking-point"
-      className="relative z-10 -mt-6 rounded-t-[25px] bg-cream px-6 py-20 md:py-32"
+      className="relative z-10 -mt-6 rounded-t-[25px] bg-cream px-6 py-20 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">

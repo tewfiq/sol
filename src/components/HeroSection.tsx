@@ -32,12 +32,12 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/25" aria-hidden="true" />
 
       <div className="relative z-10 flex h-full flex-col justify-end px-6 pb-12 md:px-10 md:pb-16">
-        <div className="mx-auto w-full max-w-5xl text-center">
+        <div className="mx-auto w-full max-w-6xl text-left">
           <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-off-white/80 sm:text-xs">
             AI Strategy · Process · Execution
           </p>
 
-          <h1 className="mt-5 text-4xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
+          <h1 className="mt-5 max-w-4xl text-4xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
             <span className="block">{ft('L’IA est disponible.')}</span>
             <span className="block">
               {ft('La ')}
@@ -56,15 +56,15 @@ export function HeroSection() {
 
           <FrenchText
             as="p"
-            className="mx-auto mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base"
+            className="mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base"
           >
             J’aide les directions à comprendre leurs processus, prioriser les
             cas d’usage IA et construire des capacités réellement utilisables
             par les équipes.
           </FrenchText>
 
-          <div className="mt-8 flex flex-col items-center gap-3 sm:gap-4">
-            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
+          <div className="mt-8 flex flex-col items-start gap-3 sm:gap-4">
+            <div className="flex flex-wrap items-center justify-start gap-1.5 sm:gap-2">
               {heroPills.map((pill) => (
                 <span
                   key={pill}
@@ -75,11 +75,10 @@ export function HeroSection() {
               ))}
             </div>
 
-            {/* Mobile: compact single-line CTA · Desktop: pill with supporting copy */}
-            <div className="flex w-full max-w-xs flex-col items-stretch sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-2 sm:rounded-2xl sm:bg-black/25 sm:p-1.5 sm:pl-5 sm:backdrop-blur-md">
+            <div className="flex w-full flex-col items-start sm:w-auto sm:flex-row sm:items-center sm:gap-2 sm:rounded-2xl sm:bg-black/25 sm:p-1.5 sm:pl-5 sm:backdrop-blur-md">
               <FrenchText
                 as="p"
-                className="mb-2 text-center text-xs font-medium text-off-white/75 sm:mb-0 sm:hidden"
+                className="mb-2 text-left text-xs font-medium text-off-white/75 sm:mb-0 sm:hidden"
               >
                 De l’analyse à l’usage opérationnel.
               </FrenchText>

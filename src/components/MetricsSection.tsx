@@ -5,7 +5,7 @@ import { ft } from '../lib/frenchType';
 
 export function MetricsSection() {
   return (
-    <section id="preuves" className="bg-cream px-6 py-20 md:py-32">
+    <section id="preuves" className="bg-cream px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
           Pratique documentée
