@@ -6,7 +6,7 @@ const contactItems = [
   { icon: MapPin, label: 'Paris, France' },
   { icon: Mail, label: 'tewfiqonline@gmail.com', href: 'mailto:tewfiqonline@gmail.com' },
   { icon: Phone, label: '+33 7 88 10 42 46', href: 'tel:+33788104246' },
-  { icon: Globe, label: 'Français · Anglais · Arabe' },
+  { icon: Globe, label: 'Français · Anglais' },
 ];
 
 export function ContactSection() {
