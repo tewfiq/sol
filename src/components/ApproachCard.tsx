@@ -23,7 +23,7 @@ export function ApproachCard({
         zIndex: index + 1,
       }}
     >
-      <article className="relative flex min-h-[min(72vh,38rem)] flex-col overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-gradient-to-br from-[#1e3524] via-deep-green to-[#0f1c13] p-7 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.65)] md:min-h-[min(74vh,40rem)] md:p-10 lg:p-12">
+      <article className="group relative flex min-h-[min(72vh,38rem)] flex-col overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-gradient-to-br from-[#1e3524] via-deep-green to-[#0f1c13] p-7 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.65)] md:min-h-[min(74vh,40rem)] md:p-10 lg:p-12">
         {/* Ambient glow */}
         <div
           className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-primary-green/25 blur-3xl"
@@ -70,7 +70,7 @@ export function ApproachCard({
 
           {/* Accent rule */}
           <div
-            className="mt-6 h-1 w-14 rounded-full bg-gradient-to-r from-sage to-primary-green md:mt-8"
+            className="mt-6 h-1 w-14 rounded-full bg-gradient-to-r from-sage to-primary-green transition-all duration-500 group-hover:w-24 md:mt-8"
             aria-hidden="true"
           />
 
@@ -83,7 +83,7 @@ export function ApproachCard({
             {card.cues.map((cue) => (
               <li
                 key={cue}
-                className="rounded-lg border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/80 backdrop-blur-sm md:text-[13px]"
+                className="rounded-lg border border-white/12 bg-white/[0.06] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/80 backdrop-blur-sm transition-all duration-200 hover:bg-white/[0.12] hover:border-white/25 hover:text-off-white md:text-[13px]"
               >
                 {cue}
               </li>

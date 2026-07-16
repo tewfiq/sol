@@ -73,11 +73,11 @@ function Card({
   return (
     <div
       ref={ref}
-      className={`bg-light-surface p-7 transition-all duration-700 ease-out md:p-10 ${
+      className={`group bg-light-surface p-7 transition-all duration-500 ease-out md:p-10 hover:bg-white ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
       }`}
     >
-      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cream text-primary-green ring-1 ring-soft-border">
+      <span className="flex h-11 w-11 items-center justify-center rounded-2xl bg-cream text-primary-green ring-1 ring-soft-border transition-transform duration-300 group-hover:scale-110 group-hover:bg-primary-green/10">
         <Icon size={20} strokeWidth={1.5} aria-hidden="true" />
       </span>
       <h3 className="mt-6 text-lg font-medium text-ink md:text-xl">

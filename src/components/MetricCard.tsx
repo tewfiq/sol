@@ -14,12 +14,14 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
   return (
     <div
       ref={ref}
-      className={`flex flex-col rounded-2xl p-6 transition-all duration-700 ease-out md:p-8 ${
-        featured ? 'bg-deep-green' : 'border border-soft-border bg-white'
+      className={`group flex flex-col rounded-2xl p-6 transition-all duration-500 ease-out md:p-8 ${
+        featured
+          ? 'bg-deep-green hover:-translate-y-1.5 hover:shadow-[0_16px_48px_-8px_rgba(23,42,28,0.45)]'
+          : 'border border-soft-border bg-white hover:-translate-y-1.5 hover:shadow-[0_8px_28px_-4px_rgba(23,32,24,0.1)] hover:border-primary-green/20'
       } ${visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${className}`}
     >
       <div
-        className={`mb-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl ${
+        className={`mb-6 flex h-10 w-10 shrink-0 items-center justify-center rounded-xl transition-transform duration-300 group-hover:scale-110 ${
           featured ? 'bg-white/15' : 'bg-cream text-primary-green ring-1 ring-soft-border'
         }`}
       >

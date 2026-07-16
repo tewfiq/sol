@@ -3,6 +3,8 @@ import { ft } from '../lib/frenchType';
 export interface Experience {
   organization: string;
   logo?: string;
+  /** Use a dark plate when the asset has a dark / solid background */
+  logoTheme?: 'light' | 'dark';
   role?: string;
   period?: string;
   clients?: string;
