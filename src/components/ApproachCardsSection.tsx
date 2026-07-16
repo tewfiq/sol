@@ -8,7 +8,6 @@ import {
 import { ft } from '../lib/frenchType';
 import { ApproachCard } from './ApproachCard';
 import { FrenchText } from './FrenchText';
-import { MovingBorder } from './MovingBorder';
 
 const sectionBackground =
   'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260709_082449_46df5cc4-ad98-4541-9236-a2659c1478a4.png&w=1920&q=85';
@@ -153,15 +152,13 @@ export function ApproachCardsSection() {
               >
                 Pas de démonstration artificielle. Partons d’un processus réel.
               </FrenchText>
-              <MovingBorder className="mt-5 rounded-2xl" duration={3000} color="#AABBA7">
               <button
                 type="button"
                 onClick={handleCta}
-                className="bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="mt-5 rounded-2xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                {ft('Parler d\u2019un contexte')}
+                {ft('Parler d’un contexte')}
               </button>
-              </MovingBorder>
             </div>
           </aside>
 
@@ -175,15 +172,13 @@ export function ApproachCardsSection() {
             ))}
 
             <div className="pt-2 lg:hidden">
-              <MovingBorder className="rounded-2xl" duration={3000} color="#AABBA7">
               <button
                 type="button"
                 onClick={handleCta}
-                className="bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90"
+                className="rounded-2xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90"
               >
-                {ft('Parler d\u2019un contexte')}
+                {ft('Parler d’un contexte')}
               </button>
-              </MovingBorder>
             </div>
           </div>
         </div>
