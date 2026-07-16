@@ -1,5 +1,7 @@
 import { metrics } from '../data/metrics';
 import { MetricCard } from './MetricCard';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 export function MetricsSection() {
   return (
@@ -9,18 +11,18 @@ export function MetricsSection() {
           Pratique documentée
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          Une expertise mesurée par l’usage.
+          {ft('Une expertise mesurée par l’usage.')}
         </h2>
         <div className="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-ink/70 md:text-lg">
-          <p>
+          <FrenchText as="p">
             Dans un domaine où les repères restent encore limités, ces
             indicateurs documentent une pratique quotidienne de l’IA générative,
             du prototypage rapide, de l’expérimentation et de la transmission.
-          </p>
-          <p>
+          </FrenchText>
+          <FrenchText as="p">
             Ils ne remplacent pas la mesure d’impact métier. Ils donnent un
             repère concret sur l’intensité de pratique.
-          </p>
+          </FrenchText>
         </div>
 
         <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-0 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">

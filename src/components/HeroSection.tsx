@@ -1,3 +1,6 @@
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
+
 const heroVideo =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260711_090308_1dd0cea7-f9ba-4db4-8147-c7d746061c9e.mp4';
 
@@ -35,9 +38,9 @@ export function HeroSection() {
           </p>
 
           <h1 className="mt-5 text-4xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
-            <span className="block">L’IA est disponible.</span>
+            <span className="block">{ft('L’IA est disponible.')}</span>
             <span className="block">
-              La{' '}
+              {ft('La ')}
               <em
                 className="not-italic"
                 style={{
@@ -46,42 +49,55 @@ export function HeroSection() {
                 }}
               >
                 valeur
-              </em>{' '}
-              reste à construire.
+              </em>
+              {ft(' reste à construire.')}
             </span>
           </h1>
 
-          <p className="mx-auto mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base">
+          <FrenchText
+            as="p"
+            className="mx-auto mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base"
+          >
             J’aide les directions à comprendre leurs processus, prioriser les
             cas d’usage IA et construire des capacités réellement utilisables
             par les équipes.
-          </p>
+          </FrenchText>
 
-          <div className="mt-8 flex flex-col items-center gap-4">
-            <div className="flex flex-wrap items-center justify-center gap-2">
+          <div className="mt-8 flex flex-col items-center gap-3 sm:gap-4">
+            <div className="flex flex-wrap items-center justify-center gap-1.5 sm:gap-2">
               {heroPills.map((pill) => (
                 <span
                   key={pill}
-                  className="rounded-full border border-white/20 bg-black/20 px-3.5 py-1.5 text-xs font-medium text-off-white/90 backdrop-blur-sm"
+                  className="rounded-full border border-white/20 bg-black/20 px-2.5 py-1 text-[11px] font-medium text-off-white/90 backdrop-blur-sm sm:px-3.5 sm:py-1.5 sm:text-xs"
                 >
                   {pill}
                 </span>
               ))}
             </div>
 
-            <div className="flex items-center gap-2 rounded-2xl bg-black/25 p-1.5 pl-5 backdrop-blur-md">
-              <p className="hidden text-sm font-medium text-off-white sm:block">
-                Audit, cadrage, agents IA, POC et adoption opérationnelle.
-              </p>
-              <p className="text-sm font-medium text-off-white sm:hidden">
+            {/* Mobile: compact single-line CTA · Desktop: pill with supporting copy */}
+            <div className="flex w-full max-w-xs flex-col items-stretch sm:w-auto sm:max-w-none sm:flex-row sm:items-center sm:gap-2 sm:rounded-2xl sm:bg-black/25 sm:p-1.5 sm:pl-5 sm:backdrop-blur-md">
+              <FrenchText
+                as="p"
+                className="mb-2 text-center text-xs font-medium text-off-white/75 sm:mb-0 sm:hidden"
+              >
                 De l’analyse à l’usage opérationnel.
-              </p>
+              </FrenchText>
+              <FrenchText
+                as="p"
+                className="hidden text-sm font-medium text-off-white sm:block"
+              >
+                Audit, cadrage, agents IA, POC et adoption opérationnelle.
+              </FrenchText>
               <button
                 type="button"
                 onClick={handleCta}
-                className="rounded-xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="whitespace-nowrap rounded-xl bg-off-white px-4 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5 sm:text-sm"
               >
-                Découvrir mon approche
+                <span className="sm:hidden">{ft('Voir mon approche')}</span>
+                <span className="hidden sm:inline">
+                  {ft('Découvrir mon approche')}
+                </span>
               </button>
             </div>
           </div>

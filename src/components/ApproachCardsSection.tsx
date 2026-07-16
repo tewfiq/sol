@@ -1,20 +1,73 @@
-import { useRef } from 'react';
-import { approachCards, approachNav } from '../data/approach';
+import { useEffect, useRef, useState } from 'react';
+import {
+  APPROACH_STACK_BASE,
+  APPROACH_STACK_STEP,
+  approachCards,
+  approachNav,
+} from '../data/approach';
+import { ft } from '../lib/frenchType';
 import { ApproachCard } from './ApproachCard';
-import { useActiveSection } from '../hooks/useActiveSection';
+import { FrenchText } from './FrenchText';
 
 const sectionBackground =
   'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260709_082449_46df5cc4-ad98-4541-9236-a2659c1478a4.png&w=1920&q=85';
 
 export function ApproachCardsSection() {
-  const { ref, activeIndex } = useActiveSection<HTMLDivElement>(0.6);
   const cardsRef = useRef<HTMLDivElement>(null);
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  // Active nav item = card currently resting at the sticky stack line
+  useEffect(() => {
+    const container = cardsRef.current;
+    if (!container) return;
+
+    const cards = Array.from(
+      container.querySelectorAll<HTMLElement>('[data-index]'),
+    );
+    if (cards.length === 0) return;
+
+    let frame = 0;
+
+    const update = () => {
+      frame = 0;
+      let next = 0;
+
+      for (const card of cards) {
+        const index = Number(card.dataset.index ?? 0);
+        const stickyLine = APPROACH_STACK_BASE + index * APPROACH_STACK_STEP;
+        if (card.getBoundingClientRect().top <= stickyLine + 8) {
+          next = index;
+        }
+      }
+
+      setActiveIndex((prev) => (prev === next ? prev : next));
+    };
+
+    const onScroll = () => {
+      if (frame) return;
+      frame = requestAnimationFrame(update);
+    };
+
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll, { passive: true });
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (frame) cancelAnimationFrame(frame);
+    };
+  }, []);
 
   const handleNavClick = (index: number) => {
     const container = cardsRef.current;
     if (!container) return;
     const card = container.querySelector<HTMLElement>(`[data-index="${index}"]`);
-    card?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (!card) return;
+
+    const top = card.getBoundingClientRect().top + window.scrollY;
+    const offset = APPROACH_STACK_BASE + index * APPROACH_STACK_STEP;
+    window.scrollTo({ top: Math.max(0, top - offset), behavior: 'smooth' });
   };
 
   const handleCta = () => {
@@ -24,10 +77,7 @@ export function ApproachCardsSection() {
   };
 
   return (
-    <section
-      id="approche"
-      className="relative overflow-hidden bg-deep-green"
-    >
+    <section id="approche" className="relative overflow-clip bg-deep-green">
       <div
         className="absolute inset-0 -z-10 bg-cover bg-fixed bg-center"
         style={{ backgroundImage: `url(${sectionBackground})` }}
@@ -38,76 +88,96 @@ export function ApproachCardsSection() {
         aria-hidden="true"
       />
 
-      <div className="px-5 py-20 md:px-10 md:py-32 lg:px-16 lg:py-40">
-        <div className="mx-auto grid max-w-7xl grid-cols-1 gap-12 lg:grid-cols-[440px_1fr] lg:gap-24 xl:grid-cols-[480px_1fr] xl:gap-48">
-          <div className="lg:sticky lg:top-0 lg:flex lg:h-screen lg:flex-col lg:justify-between lg:py-32">
+      <div className="mx-auto max-w-7xl px-5 py-20 md:px-10 md:py-28 lg:px-16 lg:py-0">
+        <div className="grid grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,22rem)_minmax(0,1fr)] lg:gap-16 xl:grid-cols-[minmax(0,26rem)_minmax(0,1fr)] xl:gap-24">
+          {/* Left rail — locked to the section viewport */}
+          <aside className="lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-between lg:py-28">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
-                De l’ambiguïté à l’usage
+                {ft('De l’ambiguïté à l’usage')}
               </p>
-              <h2 className="mt-4 text-2xl font-normal leading-[1.2] text-off-white sm:text-3xl lg:text-[42px]">
-                Construire une capacité opérationnelle, pas une démonstration.
+              <h2 className="mt-4 whitespace-pre-line text-2xl font-normal leading-[1.2] text-off-white sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15]">
+                {ft(
+                  'Construire une capacité opérationnelle,\npas une démonstration.',
+                )}
               </h2>
 
               <nav
                 aria-label="Navigation de l’approche"
                 className="mt-10 hidden lg:block"
               >
-                <ul className="space-y-2">
-                  {approachNav.map((label, i) => (
-                    <li key={label}>
-                      <button
-                        type="button"
-                        onClick={() => handleNavClick(i)}
-                        className={`w-full rounded-xl bg-black/20 px-4 py-3 text-left text-sm font-medium transition-colors ${
-                          activeIndex === i
-                            ? 'text-off-white'
-                            : 'text-off-white/40 hover:text-off-white/70'
-                        }`}
-                      >
-                        {String(i + 1).padStart(2, '0')} — {label}
-                      </button>
-                    </li>
-                  ))}
+                <ul className="space-y-1.5">
+                  {approachNav.map((label, i) => {
+                    const active = activeIndex === i;
+                    return (
+                      <li key={label}>
+                        <button
+                          type="button"
+                          onClick={() => handleNavClick(i)}
+                          aria-current={active ? 'true' : undefined}
+                          className={`group flex w-full items-center gap-3 rounded-xl px-4 py-3 text-left text-sm font-medium transition-colors duration-300 ${
+                            active
+                              ? 'bg-black/25 text-off-white'
+                              : 'text-off-white/40 hover:bg-black/15 hover:text-off-white/70'
+                          }`}
+                        >
+                          <span
+                            className={`tabular-nums transition-colors duration-300 ${
+                              active ? 'text-sage' : 'text-off-white/30'
+                            }`}
+                          >
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                          <span
+                            className={`h-px shrink-0 transition-all duration-300 ${
+                              active
+                                ? 'w-5 bg-sage'
+                                : 'w-3 bg-off-white/20 group-hover:bg-off-white/40'
+                            }`}
+                            aria-hidden="true"
+                          />
+                          <span>{label}</span>
+                        </button>
+                      </li>
+                    );
+                  })}
                 </ul>
               </nav>
             </div>
 
             <div className="mt-10 hidden lg:block">
-              <p className="text-sm text-off-white/70">
+              <FrenchText
+                as="p"
+                className="max-w-xs text-sm leading-relaxed text-off-white/70"
+              >
                 Pas de démonstration artificielle. Partons d’un processus réel.
-              </p>
+              </FrenchText>
               <button
                 type="button"
                 onClick={handleCta}
-                className="mt-5 rounded-xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
+                className="mt-5 rounded-xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                Parler d’un contexte
+                {ft('Parler d’un contexte')}
               </button>
             </div>
-          </div>
+          </aside>
 
-          <div ref={cardsRef} className="flex flex-col gap-8">
-            <div className="lg:hidden">
-              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
-                De l’ambiguïté à l’usage
-              </p>
-              <h2 className="mt-3 text-2xl font-normal leading-[1.2] text-off-white sm:text-3xl">
-                Construire une capacité opérationnelle, pas une démonstration.
-              </h2>
-            </div>
-            <div ref={ref} className="flex flex-col gap-8">
-              {approachCards.map((card, i) => (
-                <ApproachCard key={card.title} card={card} index={i} />
-              ))}
-            </div>
-            <div className="lg:hidden">
+          {/* Stack viewport — each card sticks and covers the previous */}
+          <div
+            ref={cardsRef}
+            className="relative flex flex-col gap-5 pb-6 md:gap-6 lg:gap-8 lg:pb-36 lg:pt-28"
+          >
+            {approachCards.map((card, i) => (
+              <ApproachCard key={card.title} card={card} index={i} />
+            ))}
+
+            <div className="pt-2 lg:hidden">
               <button
                 type="button"
                 onClick={handleCta}
                 className="rounded-xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90"
               >
-                Parler d’un contexte
+                {ft('Parler d’un contexte')}
               </button>
             </div>
           </div>

@@ -1,16 +1,18 @@
 import { useReveal } from '../hooks/useReveal';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 const degrees = [
   {
-    title: 'DEA E-Management & TIC',
+    title: ft('DEA E-Management & TIC'),
     school: 'Université Paris Dauphine',
   },
   {
-    title: 'Maîtrise Économie Internationale',
+    title: ft('Maîtrise Économie Internationale'),
     school: 'Université Paris I Panthéon-Sorbonne',
   },
   {
-    title: 'Licence Économétrie',
+    title: ft('Licence Économétrie'),
     school: 'Université Paris I Panthéon-Sorbonne',
   },
 ];
@@ -68,10 +70,13 @@ export function EducationSection() {
           </div>
         </div>
 
-        <p className="mt-12 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+        <FrenchText
+          as="p"
+          className="mt-12 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
+        >
           Un parcours combinant économie, analyse quantitative, management
           numérique et conception de produits.
-        </p>
+        </FrenchText>
       </div>
     </section>
   );

@@ -1,43 +1,45 @@
 import { useReveal } from '../hooks/useReveal';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 const principles = ['Construite', 'Utilisée', 'Documentée', 'Transmise'];
 
 const doItems = [
-  'Comprendre le problème métier réel',
-  'Cartographier les processus, flux et contraintes',
-  'Identifier les cas d’usage IA',
-  'Prioriser selon valeur, faisabilité et adoption',
-  'Arbitrer entre construire, acheter ou composer',
-  'Concevoir avec les équipes',
-  'Documenter et transmettre',
-  'Préparer mon retrait',
+  ft('Comprendre le problème métier réel'),
+  ft('Cartographier les processus, flux et contraintes'),
+  ft('Identifier les cas d’usage IA'),
+  ft('Prioriser selon valeur, faisabilité et adoption'),
+  ft('Arbitrer entre construire, acheter ou composer'),
+  ft('Concevoir avec les équipes'),
+  ft('Documenter et transmettre'),
+  ft('Préparer mon retrait'),
 ];
 
 const methodSteps = [
   {
     step: '01',
     title: 'Comprendre',
-    description: 'Contextes, métiers, données, irritants et décisions.',
+    description: ft('Contextes, métiers, données, irritants et décisions.'),
   },
   {
     step: '02',
     title: 'Structurer',
-    description: 'Processus, priorités, risques et responsabilités.',
+    description: ft('Processus, priorités, risques et responsabilités.'),
   },
   {
     step: '03',
     title: 'Construire',
-    description: 'Agent, workflow, assistant, prototype ou POC.',
+    description: ft('Agent, workflow, assistant, prototype ou POC.'),
   },
   {
     step: '04',
     title: 'Déployer',
-    description: 'Tester dans les conditions du travail quotidien.',
+    description: ft('Tester dans les conditions du travail quotidien.'),
   },
   {
     step: '05',
     title: 'Transmettre',
-    description: 'Documentation, formation et autonomie.',
+    description: ft('Documentation, formation et autonomie.'),
   },
 ];
 
@@ -54,13 +56,16 @@ export function PositioningSection() {
           Forward Deployed AI
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-off-white sm:text-4xl md:text-5xl">
-          Je construis depuis l’intérieur.
+          {ft('Je construis depuis l’intérieur.')}
         </h2>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-off-white/70 md:text-lg">
+        <FrenchText
+          as="p"
+          className="mt-6 max-w-2xl text-base leading-relaxed text-off-white/70 md:text-lg"
+        >
           Je rejoins temporairement les équipes pour comprendre le contexte,
           structurer les usages, construire les premiers systèmes et rendre
           l’organisation autonome.
-        </p>
+        </FrenchText>
 
         <div className="mt-12 flex flex-wrap gap-x-8 gap-y-3 md:mt-16">
           {principles.map((p) => (
@@ -99,7 +104,7 @@ export function PositioningSection() {
               ))}
             </ul>
             <p className="mt-8 border-t border-white/10 pt-6 text-lg font-medium text-off-white">
-              Puis le système continue sans moi.
+              {ft('Puis le système continue sans moi.')}
             </p>
           </div>
 

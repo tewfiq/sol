@@ -9,6 +9,8 @@ import {
 } from 'lucide-react';
 import { contributions } from '../data/contribution';
 import { useReveal } from '../hooks/useReveal';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 const iconMap: Record<string, LucideIcon> = {
   ScanSearch,
@@ -30,7 +32,7 @@ export function ContributionSection() {
           Contribution
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          Relier analyse,{' '}
+          {ft('Relier analyse, ')}
           <em
             className="not-italic"
             style={{
@@ -39,13 +41,16 @@ export function ContributionSection() {
             }}
           >
             décision
-          </em>{' '}
-          et exécution.
+          </em>
+          {ft(' et exécution.')}
         </h2>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+        <FrenchText
+          as="p"
+          className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
+        >
           Une approche hybride pour passer d’un environnement flou à une
           capacité IA compréhensible, testable et durable.
-        </p>
+        </FrenchText>
 
         <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-3xl border border-soft-border bg-soft-border sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
           {contributions.map((c) => (

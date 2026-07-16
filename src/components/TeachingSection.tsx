@@ -1,4 +1,6 @@
 import { useReveal } from '../hooks/useReveal';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 const organizations = [
   'ECV Paris',
@@ -30,14 +32,17 @@ export function TeachingSection() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
           Transmission
         </p>
-        <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          Construire, documenter, transmettre.
+        <h2 className="mt-4 max-w-3xl whitespace-pre-line text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
+          {ft('Construire, documenter,\ntransmettre.')}
         </h2>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg">
+        <FrenchText
+          as="p"
+          className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
+        >
           Depuis 2023, j’enseigne l’IA générative, le Product Design,
           l’automatisation et les méthodes d’innovation auprès d’étudiants en
           Bachelor, Master et MBA.
-        </p>
+        </FrenchText>
 
         <div
           ref={ref}
@@ -85,12 +90,15 @@ export function TeachingSection() {
                 1 500+
               </p>
               <p className="mt-2 text-sm font-semibold uppercase tracking-wider text-sage">
-                personnes formées
+                {ft('personnes formées')}
               </p>
-              <p className="mt-4 text-sm leading-relaxed text-off-white/70">
+              <FrenchText
+                as="p"
+                className="mt-4 text-sm leading-relaxed text-off-white/70"
+              >
                 Vulgariser sans appauvrir, structurer sans rigidifier et
                 transmettre des méthodes directement applicables.
-              </p>
+              </FrenchText>
             </div>
           </div>
         </div>

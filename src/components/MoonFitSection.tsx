@@ -1,17 +1,25 @@
 import { useReveal } from '../hooks/useReveal';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 const columns = [
   {
     title: 'Exigence analytique',
-    text: 'Structurer rapidement des environnements complexes, identifier les vrais points de décision et rendre les arbitrages visibles.',
+    text: ft(
+      'Structurer rapidement des environnements complexes, identifier les vrais points de décision et rendre les arbitrages visibles.',
+    ),
   },
   {
     title: 'Crédibilité métier',
-    text: 'Dialoguer avec les dirigeants, les équipes métiers, Produit et IT sans opposer stratégie, technologie et exécution.',
+    text: ft(
+      'Dialoguer avec les dirigeants, les équipes métiers, Produit et IT sans opposer stratégie, technologie et exécution.',
+    ),
   },
   {
     title: 'Culture du concret',
-    text: 'Tester les hypothèses avec des prototypes, des agents et des workflows intégrés aux usages réels.',
+    text: ft(
+      'Tester les hypothèses avec des prototypes, des agents et des workflows intégrés aux usages réels.',
+    ),
   },
 ];
 
@@ -25,7 +33,7 @@ export function MoonFitSection() {
           Pourquoi MOON
         </p>
         <h2 className="mt-4 max-w-4xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          Une même conviction : l’IA doit produire des{' '}
+          {ft('Une même conviction : l’IA doit produire des ')}
           <em
             className="not-italic"
             style={{
@@ -34,15 +42,18 @@ export function MoonFitSection() {
             }}
           >
             décisions
-          </em>{' '}
-          et des usages concrets.
+          </em>
+          {ft(' et des usages concrets.')}
         </h2>
-        <p className="mt-6 max-w-3xl text-base leading-relaxed text-ink/70 md:text-lg">
+        <FrenchText
+          as="p"
+          className="mt-6 max-w-3xl text-base leading-relaxed text-ink/70 md:text-lg"
+        >
           L’approche de MOON — analyser les processus, challenger les
           organisations, prioriser les cas d’usage et construire des solutions
           réellement utiles — correspond à la manière dont j’aborde la
           transformation IA.
-        </p>
+        </FrenchText>
 
         <div
           ref={ref}
@@ -63,11 +74,14 @@ export function MoonFitSection() {
           ))}
         </div>
 
-        <p className="mt-14 max-w-3xl border-t border-soft-border pt-8 text-sm leading-relaxed text-ink/55 md:text-base">
+        <FrenchText
+          as="p"
+          className="mt-14 max-w-3xl border-t border-soft-border pt-8 text-sm leading-relaxed text-ink/55 md:text-base"
+        >
           Je ne me positionne pas comme ingénieur ML. J’apporte une capacité
           hybride de conseil, de structuration, de prototypage et d’adoption de
           l’IA générative.
-        </p>
+        </FrenchText>
       </div>
     </section>
   );

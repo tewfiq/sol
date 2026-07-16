@@ -1,11 +1,15 @@
 import { useReveal } from '../hooks/useReveal';
+import { FrenchText } from './FrenchText';
+import { ft } from '../lib/frenchType';
 
 const leftLines = [
-  'Les modèles sont disponibles.',
-  'Les licences sont déjà là.',
-  'Les équipes expérimentent.',
-  'Les premiers POC existent.',
-  'Mais peu de cas d’usage deviennent des systèmes intégrés au travail quotidien.',
+  ft('Les modèles sont disponibles.'),
+  ft('Les licences sont déjà là.'),
+  ft('Les équipes expérimentent.'),
+  ft('Les premiers POC existent.'),
+  ft(
+    'Mais peu de cas d’usage deviennent des systèmes intégrés au travail quotidien.',
+  ),
 ];
 
 export function BlockingPointSection() {
@@ -22,7 +26,7 @@ export function BlockingPointSection() {
         </p>
 
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          Le problème n’est plus l’IA.
+          {ft('Le problème n’est plus l’IA.')}
         </h2>
 
         <div
@@ -47,11 +51,14 @@ export function BlockingPointSection() {
               ))}
             </ul>
 
-            <p className="mt-10 max-w-md text-base leading-relaxed text-ink/70 md:text-lg">
+            <FrenchText
+              as="p"
+              className="mt-10 max-w-md text-base leading-relaxed text-ink/70 md:text-lg"
+            >
               Ce qui manque n’est pas un outil supplémentaire. C’est une lecture
               claire des métiers, des décisions, des contraintes et des
               conditions réelles de déploiement.
-            </p>
+            </FrenchText>
           </div>
 
           <div className="flex flex-col justify-start">

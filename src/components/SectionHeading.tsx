@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react';
+import { FrenchText } from './FrenchText';
 
 interface SectionHeadingProps {
   eyebrow?: string;
@@ -23,29 +24,32 @@ export function SectionHeading({
   return (
     <div className={`${alignClass} max-w-3xl ${className}`}>
       {eyebrow && (
-        <p
+        <FrenchText
+          as="p"
           className={`text-xs font-semibold uppercase tracking-[0.2em] ${
             isDark ? 'text-sage' : 'text-primary-green'
           }`}
         >
           {eyebrow}
-        </p>
+        </FrenchText>
       )}
-      <h2
+      <FrenchText
+        as="h2"
         className={`mt-4 text-2xl font-normal leading-[1.2] sm:text-3xl lg:text-[42px] ${
           isDark ? 'text-off-white' : 'text-ink'
         }`}
       >
         {title}
-      </h2>
+      </FrenchText>
       {description && (
-        <p
+        <FrenchText
+          as="p"
           className={`mt-6 text-base leading-relaxed md:text-lg ${
             isDark ? 'text-off-white/70' : 'text-ink/70'
           }`}
         >
           {description}
-        </p>
+        </FrenchText>
       )}
     </div>
   );
