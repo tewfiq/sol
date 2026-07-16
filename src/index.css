@@ -50,3 +50,8 @@ figcaption {
   background-color: #326B45;
   color: #FCFAF6;
 }
+
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
