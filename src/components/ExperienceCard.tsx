@@ -11,6 +11,14 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
         visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >
+      {experience.logo && (
+        <img
+          src={experience.logo}
+          alt={experience.organization}
+          className="mb-5 h-7 w-auto opacity-80"
+          loading="lazy"
+        />
+      )}
       <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-2">
         <h3 className="text-xl font-medium text-off-white md:text-2xl">
           {experience.organization}

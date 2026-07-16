@@ -2,6 +2,7 @@ import { ft } from '../lib/frenchType';
 
 export interface Experience {
   organization: string;
+  logo?: string;
   role?: string;
   period?: string;
   clients?: string;
@@ -12,6 +13,7 @@ export interface Experience {
 export const experiences: Experience[] = [
   {
     organization: 'BNP Paribas — UX Center PACE',
+    logo: '/entreprises/bnpp.svg',
     role: 'Lead UX Designer',
     period: '2017–2019',
     content: [
@@ -29,6 +31,7 @@ export const experiences: Experience[] = [
   },
   {
     organization: 'DINUM — La Suite Numérique',
+    logo: '/entreprises/dinum.png',
     role: 'Senior Product Designer',
     period: '2022–2024',
     content: [
@@ -46,6 +49,7 @@ export const experiences: Experience[] = [
   },
   {
     organization: 'EDF / ENEDIS',
+    logo: '/entreprises/edf.svg.webp',
     role: 'UX Principal / Senior Consultant',
     period: '2023',
     content: [
