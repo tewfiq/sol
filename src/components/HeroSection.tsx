@@ -1,5 +1,6 @@
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { MovingBorder } from './MovingBorder';
 
 const heroVideo =
   'https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260711_090308_1dd0cea7-f9ba-4db4-8147-c7d746061c9e.mp4';
@@ -88,16 +89,18 @@ export function HeroSection() {
               >
                 Audit, cadrage, agents IA, POC et adoption opérationnelle.
               </FrenchText>
+              <MovingBorder className="rounded-2xl" duration={3000} color="#AABBA7">
               <button
                 type="button"
                 onClick={handleCta}
-                className="whitespace-nowrap rounded-2xl bg-off-white px-4 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5 sm:text-sm"
+                className="whitespace-nowrap bg-off-white px-4 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-5 sm:text-sm"
               >
                 <span className="sm:hidden">{ft('Voir mon approche')}</span>
                 <span className="hidden sm:inline">
                   {ft('Découvrir mon approche')}
                 </span>
               </button>
+              </MovingBorder>
             </div>
           </div>
         </div>
