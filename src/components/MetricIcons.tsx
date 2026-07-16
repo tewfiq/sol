@@ -15,56 +15,28 @@ function svgProps({ size = 20, className, ...rest }: IconProps) {
   };
 }
 
-/** Anthropic Claude — star / asterisk mark */
-function ClaudeIcon(props: IconProps) {
-  return (
-    <svg {...svgProps(props)} fill="currentColor">
-      <path d="M12 2.4 9.68 8.32 3.5 9.2l4.5 4.38-1.06 6.02L12 16.72l5.06 2.88-1.06-6.02 4.5-4.38-6.18-.88L12 2.4Zm0 4.12 1.28 3.26 3.5.5-2.55 2.48.6 3.4L12 14.54l-2.83 1.62.6-3.4-2.55-2.48 3.5-.5L12 6.52Z" />
-    </svg>
-  );
+function BrandImg({ src, size = 20, alt = '' }: { src: string; size?: number; alt?: string }) {
+  return <img src={src} alt={alt} width={size} height={size} aria-hidden="true" style={{ objectFit: 'contain' }} />;
 }
 
-/** v0 by Vercel — geometric v0 mark */
-function V0Icon(props: IconProps) {
-  return (
-    <svg {...svgProps(props)} fill="currentColor">
-      <path d="M14.026 4.5 21 19.5h-3.253l-5.168-11.13L7.41 19.5H4.158L11.132 4.5h2.894Z" />
-      <path d="M8.46 15.56c0 1.97-1.236 3.19-3.267 3.19C3.17 18.75 2 17.53 2 15.56c0-1.98 1.19-3.2 3.193-3.2 2.03 0 3.267 1.22 3.267 3.2Zm-4.72 0c0 1.09.55 1.77 1.453 1.77.904 0 1.454-.68 1.454-1.77 0-1.1-.55-1.78-1.454-1.78-.903 0-1.453.68-1.453 1.78Z" />
-    </svg>
-  );
+function ClaudeIcon({ size }: IconProps) {
+  return <BrandImg src="/icons/claude.svg" size={size} />;
 }
 
-/** GitHub Octocat mark */
-function GitHubIcon(props: IconProps) {
-  return (
-    <svg {...svgProps(props)} fill="currentColor">
-      <path
-        fillRule="evenodd"
-        clipRule="evenodd"
-        d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z"
-      />
-    </svg>
-  );
+function V0Icon({ size }: IconProps) {
+  return <BrandImg src="/icons/v0.svg" size={size} />;
 }
 
-/** Netlify — triangular diamond mark */
-function NetlifyIcon(props: IconProps) {
-  return (
-    <svg {...svgProps(props)} fill="currentColor">
-      <path d="m16.934 8.504-2.043-2.044-1.698 1.698 2.044 2.043 1.697-1.697Zm-2.98-2.98L12.17 3.74a.75.75 0 0 0-1.061 0L8.326 6.524l1.697 1.697 3.931-3.697Zm-5.02.283L6.24 8.5l1.697 1.697 2.694-2.694-1.697-1.696Zm-.28 5.02L5.96 13.52a.75.75 0 0 0 0 1.06l1.784 1.784 1.697-1.697-1.787-2.12Zm.283 5.02 2.694-2.694-1.697-1.697-2.695 2.694 1.698 1.697Zm5.02.28 2.694-2.694-1.698-1.697-2.694 2.694 1.698 1.697Zm5.02-.283 1.784-1.784a.75.75 0 0 0 0-1.06l-1.784-1.785-1.697 1.698 1.697 2.93Zm-.283-5.02 2.694-2.694-1.697-1.697-2.694 2.694 1.697 1.697ZM12 9.75a2.25 2.25 0 1 0 0 4.5 2.25 2.25 0 0 0 0-4.5Z" />
-    </svg>
-  );
+function GitHubIcon({ size }: IconProps) {
+  return <BrandImg src="/icons/github.svg" size={size} />;
 }
 
-/** Google AI Studio / Gemini multi-spark mark */
-function GoogleAIStudioIcon(props: IconProps) {
-  return (
-    <svg {...svgProps(props)} fill="currentColor">
-      <path d="M12 2c.42 4.35 2.25 6.5 6.5 6.5-4.25 0-6.08 2.15-6.5 6.5-.42-4.35-2.25-6.5-6.5-6.5 4.25 0 6.08-2.15 6.5-6.5Z" />
-      <path d="M18.6 13.75c.23 2.45 1.28 3.7 3.65 3.65-2.37.05-3.42 1.3-3.65 3.75-.23-2.45-1.28-3.7-3.65-3.75 2.37-.05 3.42-1.3 3.65-3.65Z" />
-      <path d="M6.25 14.5c.18 1.95 1 2.95 2.9 2.9-1.9.05-2.72 1.05-2.9 3-.18-1.95-1-2.95-2.9-3 1.9-.05 2.72-1.05 2.9-2.9Z" />
-    </svg>
-  );
+function NetlifyIcon({ size }: IconProps) {
+  return <BrandImg src="/icons/netlify.png" size={size} />;
+}
+
+function GoogleAIStudioIcon({ size }: IconProps) {
+  return <BrandImg src="/icons/aistudio.svg" size={size} />;
 }
 
 function ToolsIcon(props: IconProps) {
