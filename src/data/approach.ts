@@ -26,23 +26,23 @@ export const approachCards: ApproachCard[] = [
     title: 'Découvrir',
     heading: ft('Comprendre avant de concevoir'),
     description: ft(
-      'Observer les utilisateurs, les tâches, les décisions, les parcours, les outils existants et les contraintes opérationnelles avant de proposer une expérience.',
+      'Observer les utilisateurs, les parcours, les irritants et les contraintes.',
     ),
-    cues: ['Utilisateurs', 'Parcours', 'Besoins', 'Données', 'Contraintes'],
+    cues: ['Utilisateurs', 'Parcours', 'Besoins', 'Contraintes'],
   },
   {
     title: 'Cadrer',
     heading: ft('Distinguer possibilité et valeur'),
     description: ft(
-      'Identifier les usages où l\u2019IA peut réellement améliorer l\u2019expérience, réduire une friction ou augmenter les capacités des équipes, puis prioriser selon la valeur, la faisabilité, les risques et l\u2019adoption.',
+      'Prioriser les usages selon leur valeur, leur faisabilité, leurs risques et leur adoption.',
     ),
     cues: ['Valeur', 'Faisabilité', 'Risques', 'Adoption'],
   },
   {
     title: 'Concevoir',
-    heading: ft('Donner une forme concrète à l\u2019expérience'),
+    heading: ft('Donner forme à l\u2019expérience'),
     description: ft(
-      'Concevoir les parcours, les interactions humain-IA, les interfaces, les composants et un prototype suffisamment réaliste pour éprouver les hypothèses.',
+      'Créer les parcours, interactions, interfaces, composants et prototypes.',
     ),
     cues: ['Parcours', 'Interfaces', 'Prototype', 'Design System'],
   },
@@ -50,7 +50,7 @@ export const approachCards: ApproachCard[] = [
     title: 'Valider',
     heading: ft('Tester dans les conditions réelles'),
     description: ft(
-      'Observer la compréhension, la confiance, l\u2019utilité, la reprise en main et les usages réels, puis ajuster l\u2019expérience au-delà de la seule performance du modèle.',
+      'Observer la compréhension, la confiance, l\u2019utilité et la reprise en main.',
     ),
     cues: ['Tests', 'Confiance', 'Contrôle', 'Itération'],
   },
@@ -58,7 +58,7 @@ export const approachCards: ApproachCard[] = [
     title: 'Transmettre',
     heading: ft('Faire de l\u2019autonomie un résultat'),
     description: ft(
-      'Documenter les choix, enrichir le Design System, formaliser les règles d\u2019usage et transmettre une capacité durable aux équipes Produit, Design et Tech.',
+      'Documenter les choix, enrichir le Design System et faire monter les équipes en compétence.',
     ),
     cues: ['Documentation', 'Formation', 'Autonomie', 'Durabilité'],
   },

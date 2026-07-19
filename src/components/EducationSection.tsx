@@ -17,7 +17,7 @@ const degrees = [
   },
 ];
 
-const training = ['Design Sprint 2.0', 'Design Thinking'];
+const training = ['Design Sprint 2.0 — Le Laptop', 'Design Thinking — Thiga'];
 
 export function EducationSection() {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
@@ -28,6 +28,9 @@ export function EducationSection() {
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
           Formation
         </p>
+        <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
+          {ft('Analyse, management et conception.')}
+        </h2>
 
         <div
           ref={ref}

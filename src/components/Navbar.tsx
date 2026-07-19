@@ -6,7 +6,7 @@ const navLinks = [
   { label: 'Méthode', href: '#methode' },
   { label: 'Expérience', href: '#experience' },
   { label: 'Preuves', href: '#preuves' },
-  { label: 'Transmission', href: '#transmission' },
+  { label: 'Onepoint', href: '#onepoint' },
   { label: 'Contact', href: '#contact' },
 ];
 

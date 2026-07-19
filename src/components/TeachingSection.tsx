@@ -3,18 +3,13 @@ import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
 const topics = [
-  'AI Native Design',
-  'IA générative',
   'Product Design',
   'UX Research',
-  'Figma',
   'Design Systems',
+  'Figma',
   'Prompt Engineering',
   'Design Engineering',
-  'Prototypage rapide',
-  'Design Sprint',
-  'Innovation',
-  'Neuro-marketing',
+  'Prototypage',
 ];
 
 const slides = [
@@ -52,9 +47,9 @@ export function TeachingSection() {
           as="p"
           className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
         >
-          Depuis 2023, j&apos;enseigne le Product Design, l&apos;AI Native Design, l&apos;UX
-          Research, les Design Systems, le prototypage et l&apos;IA générative auprès
-          d&apos;étudiants en Bachelor, Master et MBA.
+          Depuis 2023, j&apos;enseigne le Product Design,
+          l&apos;AI Native Design et l&apos;IA générative
+          auprès d&apos;étudiants en Bachelor, Master et MBA.
         </FrenchText>
       </div>
 

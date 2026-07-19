@@ -36,17 +36,16 @@ export function ContactSection() {
           as="p"
           className="mt-6 max-w-2xl text-base leading-relaxed text-off-white/70 md:text-lg"
         >
-          Vous recherchez un Product Designer capable d&apos;articuler stratégie
-          produit, recherche utilisateur, Design Systems, accessibilité et IA
-          générative pour concevoir des expériences utiles, désirables et
-          durables ?
+          Vous recherchez un Product Designer capable de relier
+          recherche utilisateur, Design Systems, accessibilité
+          et IA générative ?
         </FrenchText>
         <FrenchText
           as="p"
           className="mt-4 max-w-2xl text-base leading-relaxed text-off-white/70 md:text-lg"
         >
-          Échangeons autour de votre équipe, de vos produits et des nouveaux
-          usages que l&apos;IA rend possibles.
+          Échangeons autour de vos produits,
+          de vos équipes et de vos usages.
         </FrenchText>
 
         <div className="mt-10 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
@@ -58,7 +57,7 @@ export function ContactSection() {
             <span className="hidden sm:inline">{ft('Échanger avec Tewfiq')}</span>
           </a>
           <a
-            href="/CVTFOP20726.pdf"
+            href="/CV_Tewfiq_Ferahi_Onepoint_2026.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl border border-white/25 px-5 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
@@ -95,8 +94,8 @@ export function ContactSection() {
           as="p"
           className="mt-12 max-w-2xl text-base leading-relaxed text-off-white/60 md:text-lg"
         >
-          Disponible pour rejoindre une équipe exigeante et concevoir des
-          produits AI Native à fort impact.
+          Disponible pour rejoindre une équipe
+          et concevoir des produits AI Native à fort impact.
         </FrenchText>
       </div>
 
@@ -105,7 +104,10 @@ export function ContactSection() {
           Tewfiq Ferahi — Lead AI Native Product Designer
         </p>
         <p className="mt-2 text-xs uppercase tracking-[0.2em] text-off-white/40">
-          AI Native Design · Product · Systems · Transmission
+          Product Design · Design Systems · IA générative
+        </p>
+        <p className="mt-3 text-xs text-off-white/30">
+          © 2026 Tewfiq Ferahi
         </p>
       </footer>
     </section>

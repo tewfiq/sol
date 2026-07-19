@@ -43,13 +43,15 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
       >
         {metric.label}
       </p>
-      <p
-        className={`mt-1.5 text-sm leading-relaxed ${
-          featured ? 'text-off-white/55' : 'text-ink/45'
-        }`}
-      >
-        {metric.caption}
-      </p>
+      {metric.caption && (
+        <p
+          className={`mt-1.5 text-sm leading-relaxed ${
+            featured ? 'text-off-white/55' : 'text-ink/45'
+          }`}
+        >
+          {metric.caption}
+        </p>
+      )}
     </div>
   );
 }

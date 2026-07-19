@@ -77,7 +77,7 @@ export function ApproachCardsSection() {
   };
 
   return (
-    <section id="approche-cards" className="relative overflow-clip bg-deep-green">
+    <section id="methode" className="relative overflow-clip bg-deep-green">
       <div
         className="absolute inset-0 -z-10 bg-cover bg-fixed bg-center"
         style={{ backgroundImage: `url(${sectionBackground})` }}
@@ -94,13 +94,21 @@ export function ApproachCardsSection() {
           <aside className="lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-between lg:py-28">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
-                {ft('De l\u2019ambiguïté à l\u2019usage')}
+                La méthode
               </p>
               <h2 className="mt-4 whitespace-pre-line text-2xl font-normal leading-[1.2] text-off-white sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15]">
                 {ft(
-                  'Construire un produit utile,\npas une démonstration.',
+                  'Du besoin réel\nau produit utilisé.',
                 )}
               </h2>
+              <FrenchText
+                as="p"
+                className="mt-5 max-w-xs text-sm leading-relaxed text-off-white/70"
+              >
+                Je rejoins les équipes Produit pour transformer besoins utilisateurs,
+                enjeux métiers et possibilités technologiques en expériences
+                testables, accessibles et déployables.
+              </FrenchText>
 
               <nav
                 aria-label="Navigation de l'approche"
@@ -150,7 +158,7 @@ export function ApproachCardsSection() {
                 as="p"
                 className="max-w-xs text-sm leading-relaxed text-off-white/70"
               >
-                Pas de solution artificielle. Partons d&apos;un besoin utilisateur, d&apos;un parcours ou d&apos;un produit réel.
+                Partons d&apos;un besoin, d&apos;un parcours ou d&apos;un produit réel.
               </FrenchText>
               <button
                 type="button"

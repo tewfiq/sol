@@ -81,7 +81,7 @@ export function HeroSection() {
   };
 
   const handleCvClick = () => {
-    window.open('/CVTFOP20726.pdf', '_blank');
+    window.open('/CV_Tewfiq_Ferahi_Onepoint_2026.pdf', '_blank');
   };
 
   // Copy fades out as you scroll deeper into the video
@@ -173,10 +173,8 @@ export function HeroSection() {
               as="p"
               className="mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base"
             >
-              J&apos;aide les organisations &agrave; imaginer, concevoir et faire adopter
-              des produits num&eacute;riques o&ugrave; l&apos;intelligence artificielle enrichit
-              l&apos;exp&eacute;rience utilisateur, acc&eacute;l&egrave;re le travail des &eacute;quipes Produit
-              et transforme les fa&ccedil;ons de concevoir.
+              Je conçois des produits AI Native utiles, accessibles
+              et prêts à être adoptés par les utilisateurs comme par les équipes.
             </FrenchText>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:gap-4">
@@ -196,13 +194,13 @@ export function HeroSection() {
                   as="p"
                   className="mb-2 text-left text-xs font-medium text-off-white/75 sm:mb-0 sm:hidden"
                 >
-                  Product Design · UX Research · Design Systems · Design Engineering
+                  Product Discovery · UX Research · Design Systems · Prototypage · Design Engineering
                 </FrenchText>
                 <FrenchText
                   as="p"
                   className="hidden text-sm font-medium text-off-white sm:block"
                 >
-                  De la Product Discovery au handoff développeurs : cadrage, recherche utilisateur, conception UX/UI, prototypage, Design Systems, tests et adoption.
+                  Product Discovery · UX Research · Design Systems · Prototypage · Design Engineering
                 </FrenchText>
                 <button
                   type="button"
