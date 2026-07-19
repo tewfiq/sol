@@ -1,10 +1,10 @@
 import {
-  ScanSearch,
-  Target,
-  ListFilter,
-  Users,
+  Compass,
+  Search,
+  Sparkles,
+  LayoutGrid,
   Wrench,
-  GraduationCap,
+  Users,
   type LucideIcon,
 } from 'lucide-react';
 import { contributions } from '../data/contribution';
@@ -13,12 +13,12 @@ import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
 const iconMap: Record<string, LucideIcon> = {
-  ScanSearch,
-  Target,
-  ListFilter,
-  Users,
+  Compass,
+  Search,
+  Sparkles,
+  LayoutGrid,
   Wrench,
-  GraduationCap,
+  Users,
 };
 
 export function ContributionSection() {
@@ -32,7 +32,7 @@ export function ContributionSection() {
           Contribution
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          {ft('Relier analyse, ')}
+          {ft('Relier usages, ')}
           <em
             className="not-italic"
             style={{
@@ -40,16 +40,16 @@ export function ContributionSection() {
               fontStyle: 'italic',
             }}
           >
-            décision
+            design
           </em>
-          {ft(' et exécution.')}
+          {ft(' et intelligence artificielle.')}
         </h2>
         <FrenchText
           as="p"
           className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
         >
-          Une approche hybride pour passer d’un environnement flou à une
-          capacité IA compréhensible, testable et durable.
+          Une approche hybride pour transformer une possibilité technologique en
+          produit compréhensible, testable, accessible et durable.
         </FrenchText>
 
         <div className="mt-12 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-soft-border bg-soft-border sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
@@ -68,7 +68,7 @@ function Card({
   contribution: (typeof contributions)[number];
 }) {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
-  const Icon = iconMap[contribution.icon] ?? Target;
+  const Icon = iconMap[contribution.icon] ?? Compass;
 
   return (
     <div

@@ -75,7 +75,8 @@ export function EducationSection() {
           className="mt-12 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
         >
           Un parcours combinant économie, analyse quantitative, management
-          numérique et conception de produits.
+          numérique et conception de produits — enrichi par plus de douze ans de
+          pratique du Product Design et de l&apos;IA générative.
         </FrenchText>
       </div>
     </section>

@@ -14,51 +14,51 @@ export const APPROACH_STACK_BASE = 88;
 export const APPROACH_STACK_STEP = 16;
 
 export const approachNav: string[] = [
-  'Auditer',
-  'Prioriser',
-  'Construire',
-  'Déployer',
+  'Découvrir',
+  'Cadrer',
+  'Concevoir',
+  'Valider',
   'Transmettre',
 ];
 
 export const approachCards: ApproachCard[] = [
   {
-    title: 'Auditer',
-    heading: ft('Comprendre avant d’automatiser'),
+    title: 'Découvrir',
+    heading: ft('Comprendre avant de concevoir'),
     description: ft(
-      'Observer les tâches, les décisions, les flux d’information, les outils existants, les données disponibles et les contraintes opérationnelles avant de proposer une solution.',
+      'Observer les utilisateurs, les tâches, les décisions, les parcours, les outils existants et les contraintes opérationnelles avant de proposer une expérience.',
     ),
-    cues: ['Tâches', 'Décisions', 'Flux', 'Données', 'Contraintes'],
+    cues: ['Utilisateurs', 'Parcours', 'Besoins', 'Données', 'Contraintes'],
   },
   {
-    title: 'Prioriser',
-    heading: ft('Distinguer opportunité et distraction'),
+    title: 'Cadrer',
+    heading: ft('Distinguer possibilité et valeur'),
     description: ft(
-      'Évaluer les cas d’usage selon leur valeur métier, leur faisabilité, la qualité des données, les risques, l’effort nécessaire et leur potentiel d’adoption.',
+      'Identifier les usages où l\u2019IA peut réellement améliorer l\u2019expérience, réduire une friction ou augmenter les capacités des équipes, puis prioriser selon la valeur, la faisabilité, les risques et l\u2019adoption.',
     ),
     cues: ['Valeur', 'Faisabilité', 'Risques', 'Adoption'],
   },
   {
-    title: 'Construire',
-    heading: ft('Tester avec un système réel'),
+    title: 'Concevoir',
+    heading: ft('Donner une forme concrète à l\u2019expérience'),
     description: ft(
-      'Concevoir un agent, un assistant, un workflow ou un prototype suffisamment concret pour confronter les hypothèses à une situation de travail réelle.',
+      'Concevoir les parcours, les interactions humain-IA, les interfaces, les composants et un prototype suffisamment réaliste pour éprouver les hypothèses.',
     ),
-    cues: ['Agent', 'Workflow', 'Prototype', 'Terrain'],
+    cues: ['Parcours', 'Interfaces', 'Prototype', 'Design System'],
   },
   {
-    title: 'Déployer',
-    heading: ft('Passer du POC au quotidien'),
+    title: 'Valider',
+    heading: ft('Tester dans les conditions réelles'),
     description: ft(
-      'Intégrer le système aux pratiques existantes, clarifier les responsabilités, observer les usages et ajuster le dispositif au-delà de la seule performance technique.',
+      'Observer la compréhension, la confiance, l\u2019utilité, la reprise en main et les usages réels, puis ajuster l\u2019expérience au-delà de la seule performance du modèle.',
     ),
-    cues: ['Intégration', 'Usages', 'Rôles', 'Ajustement'],
+    cues: ['Tests', 'Confiance', 'Contrôle', 'Itération'],
   },
   {
     title: 'Transmettre',
-    heading: ft('Faire de l’autonomie un résultat'),
+    heading: ft('Faire de l\u2019autonomie un résultat'),
     description: ft(
-      'Documenter les choix, former les équipes et transmettre une capacité durable plutôt que créer une dépendance envers un consultant ou une solution opaque.',
+      'Documenter les choix, enrichir le Design System, formaliser les règles d\u2019usage et transmettre une capacité durable aux équipes Produit, Design et Tech.',
     ),
     cues: ['Documentation', 'Formation', 'Autonomie', 'Durabilité'],
   },

@@ -77,7 +77,7 @@ export function ApproachCardsSection() {
   };
 
   return (
-    <section id="approche" className="relative overflow-clip bg-deep-green">
+    <section id="approche-cards" className="relative overflow-clip bg-deep-green">
       <div
         className="absolute inset-0 -z-10 bg-cover bg-fixed bg-center"
         style={{ backgroundImage: `url(${sectionBackground})` }}
@@ -94,16 +94,16 @@ export function ApproachCardsSection() {
           <aside className="lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-between lg:py-28">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
-                {ft('De l’ambiguïté à l’usage')}
+                {ft('De l\u2019ambiguïté à l\u2019usage')}
               </p>
               <h2 className="mt-4 whitespace-pre-line text-2xl font-normal leading-[1.2] text-off-white sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15]">
                 {ft(
-                  'Construire une capacité opérationnelle,\npas une démonstration.',
+                  'Construire un produit utile,\npas une démonstration.',
                 )}
               </h2>
 
               <nav
-                aria-label="Navigation de l’approche"
+                aria-label="Navigation de l'approche"
                 className="mt-10 hidden lg:block"
               >
                 <ul className="space-y-1.5">
@@ -150,14 +150,14 @@ export function ApproachCardsSection() {
                 as="p"
                 className="max-w-xs text-sm leading-relaxed text-off-white/70"
               >
-                Pas de démonstration artificielle. Partons d’un processus réel.
+                Pas de solution artificielle. Partons d&apos;un besoin utilisateur, d&apos;un parcours ou d&apos;un produit réel.
               </FrenchText>
               <button
                 type="button"
                 onClick={handleCta}
                 className="mt-5 rounded-2xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors duration-300 hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white"
               >
-                {ft('Parler d’un contexte')}
+                {ft('Parler d\u2019un contexte')}
               </button>
             </div>
           </aside>
@@ -177,7 +177,7 @@ export function ApproachCardsSection() {
                 onClick={handleCta}
                 className="rounded-2xl bg-off-white px-5 py-2.5 text-sm font-medium text-ink transition-colors hover:bg-off-white/90"
               >
-                {ft('Parler d’un contexte')}
+                {ft('Parler d\u2019un contexte')}
               </button>
             </div>
           </div>

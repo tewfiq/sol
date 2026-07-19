@@ -6,6 +6,7 @@ const navLinks = [
   { label: 'Méthode', href: '#methode' },
   { label: 'Expérience', href: '#experience' },
   { label: 'Preuves', href: '#preuves' },
+  { label: 'Transmission', href: '#transmission' },
   { label: 'Contact', href: '#contact' },
 ];
 
@@ -59,7 +60,7 @@ export function Navbar() {
                 Tewfiq Ferahi
               </span>
               <span className="hidden text-[10px] font-medium uppercase tracking-[0.18em] text-ink/50 sm:inline">
-                FD AI
+                AI Native Product Design
               </span>
             </a>
 
@@ -126,7 +127,7 @@ export function Navbar() {
                   }}
                   className="block rounded-xl bg-deep-green px-4 py-2.5 text-left text-sm font-medium text-off-white transition-colors hover:bg-primary-green focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-green"
                 >
-                  {ft('Parler d’un contexte')}
+                  {ft('Parler d\u2019un produit')}
                 </a>
               </li>
             </ul>

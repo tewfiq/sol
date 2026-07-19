@@ -8,45 +8,45 @@ export interface Contribution {
 
 export const contributions: Contribution[] = [
   {
-    title: 'Audit IA',
+    title: 'Product Discovery',
     description: ft(
-      'Décomposer un environnement métier en processus, flux, données, décisions, outils et points de friction.',
+      'Comprendre les besoins, les irritants, les parcours et les objectifs avant de produire une solution.',
     ),
-    icon: 'ScanSearch',
+    icon: 'Compass',
   },
   {
-    title: 'Cas d’usage',
+    title: 'UX Research',
     description: ft(
-      'Identifier les situations où l’IA peut produire une valeur observable, au-delà de l’effet de nouveauté.',
+      'Observer, interviewer, tester et transformer les données de recherche en décisions de conception.',
     ),
-    icon: 'Target',
+    icon: 'Search',
   },
   {
-    title: 'Priorisation',
+    title: 'AI Native Design',
     description: ft(
-      'Arbitrer selon l’impact métier, la faisabilité, les risques, l’effort opérationnel et le potentiel d’adoption.',
+      'Concevoir les interactions humain-IA, les niveaux de contrôle, les états d\u2019incertitude, les erreurs et les mécanismes de confiance.',
     ),
-    icon: 'ListFilter',
+    icon: 'Sparkles',
   },
   {
-    title: 'Accompagnement dirigeant',
+    title: 'Design Systems',
     description: ft(
-      'Expliquer les sujets complexes sans les appauvrir et transformer l’analyse en options de décision crédibles.',
+      'Créer des fondations cohérentes, accessibles et documentées, capables d\u2019évoluer avec les produits et les usages génératifs.',
     ),
-    icon: 'Users',
+    icon: 'LayoutGrid',
   },
   {
-    title: 'Prototypage',
+    title: 'Rapid Prototyping',
     description: ft(
-      'Construire rapidement des agents, assistants et workflows pour tester les hypothèses dans un contexte réel.',
+      'Transformer rapidement une hypothèse en expérience testable, de la maquette au prototype fonctionnel.',
     ),
     icon: 'Wrench',
   },
   {
     title: 'Adoption',
     description: ft(
-      'Intégrer les outils dans les pratiques, former les équipes et documenter les usages pour développer l’autonomie.',
+      'Intégrer les nouveaux outils dans les pratiques, former les équipes et développer leur autonomie.',
     ),
-    icon: 'GraduationCap',
+    icon: 'Users',
   },
 ];

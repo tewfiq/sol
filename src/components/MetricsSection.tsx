@@ -13,7 +13,6 @@ const bento: { featured: boolean; className: string }[] = [
   { featured: false, className: '' },
   { featured: false, className: '' },
   { featured: false, className: '' },
-  { featured: false, className: '' },
 ];
 
 export function MetricsSection() {
@@ -24,17 +23,19 @@ export function MetricsSection() {
           Pratique documentée
         </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          {ft('Une expertise mesurée par l\u2019usage.')}
+          {ft('Une pratique quotidienne du AI Native Design.')}
         </h2>
         <div className="mt-8 max-w-2xl space-y-4 text-base leading-relaxed text-ink/70 md:text-lg">
           <FrenchText as="p">
-            Dans un domaine où les repères restent encore limités, ces
-            indicateurs documentent une pratique quotidienne de l'IA générative,
-            du prototypage rapide, de l'expérimentation et de la transmission.
+            Dans un domaine qui évolue rapidement, la maîtrise ne repose pas
+            uniquement sur la veille. Elle se construit par une pratique continue
+            de la recherche, de la conception, du prototypage, du Design
+            Engineering et de la transmission.
           </FrenchText>
           <FrenchText as="p">
-            Ils ne remplacent pas la mesure d'impact métier. Ils donnent un
-            repère concret sur l'intensité de pratique.
+            Ces indicateurs ne remplacent pas la mesure de l&apos;impact produit. Ils
+            donnent un repère concret sur l&apos;intensité de pratique,
+            d&apos;expérimentation et de production.
           </FrenchText>
         </div>
 
@@ -43,8 +44,8 @@ export function MetricsSection() {
             <MetricCard
               key={metric.label}
               metric={metric}
-              featured={bento[i].featured}
-              className={bento[i].className}
+              featured={bento[i]?.featured ?? false}
+              className={bento[i]?.className ?? ''}
             />
           ))}
         </div>

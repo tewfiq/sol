@@ -20,7 +20,7 @@ export function ContactSection() {
           Contact
         </p>
         <h2 className="mt-5 max-w-3xl text-4xl font-normal leading-[1.1] text-off-white sm:text-5xl md:text-6xl lg:text-7xl">
-          {ft('Parlons d’un problème ')}
+          {ft('Construisons le prochain produit ')}
           <em
             className="not-italic"
             style={{
@@ -28,7 +28,7 @@ export function ContactSection() {
               fontStyle: 'italic',
             }}
           >
-            réel
+            AI Native
           </em>
           .
         </h2>
@@ -36,22 +36,29 @@ export function ContactSection() {
           as="p"
           className="mt-6 max-w-2xl text-base leading-relaxed text-off-white/70 md:text-lg"
         >
-          Un processus difficile à structurer, un portefeuille de cas d’usage à
-          prioriser ou un agent IA à tester dans les conditions du quotidien.
+          Vous recherchez un Product Designer capable d&apos;articuler stratégie
+          produit, recherche utilisateur, Design Systems, accessibilité et IA
+          générative pour concevoir des expériences utiles, désirables et
+          durables ?
+        </FrenchText>
+        <FrenchText
+          as="p"
+          className="mt-4 max-w-2xl text-base leading-relaxed text-off-white/70 md:text-lg"
+        >
+          Échangeons autour de votre équipe, de vos produits et des nouveaux
+          usages que l&apos;IA rend possibles.
         </FrenchText>
 
         <div className="mt-10 flex flex-col gap-2.5 sm:flex-row sm:items-center sm:gap-3">
           <a
-            href="https://cal.com/tewfiqferahi/ai-product-clarity-call"
-            target="_blank"
-            rel="noopener noreferrer"
+            href="mailto:tewfiqonline@gmail.com?subject=%C3%89change%20%E2%80%94%20AI%20Native%20Product%20Design"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl bg-off-white px-5 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
           >
             <span className="sm:hidden">{ft('Échanger')}</span>
             <span className="hidden sm:inline">{ft('Échanger avec Tewfiq')}</span>
           </a>
           <a
-            href="/CVTFSCIA0726.pdf"
+            href="/CVTFOP20726.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl border border-white/25 px-5 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
@@ -88,17 +95,17 @@ export function ContactSection() {
           as="p"
           className="mt-12 max-w-2xl text-base leading-relaxed text-off-white/60 md:text-lg"
         >
-          Disponible pour rejoindre une équipe exigeante et construire des
-          capacités IA opérationnelles.
+          Disponible pour rejoindre une équipe exigeante et concevoir des
+          produits AI Native à fort impact.
         </FrenchText>
       </div>
 
       <footer className="mx-auto mt-20 max-w-6xl border-t border-white/10 pt-8">
         <p className="text-sm font-medium text-off-white">
-          Tewfiq Ferahi — Senior AI Transformation Consultant
+          Tewfiq Ferahi — Lead AI Native Product Designer
         </p>
         <p className="mt-2 text-xs uppercase tracking-[0.2em] text-off-white/40">
-          IA Strategy · Process · Product · Execution
+          AI Native Design · Product · Systems · Transmission
         </p>
       </footer>
     </section>

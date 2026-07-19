@@ -4,21 +4,27 @@ import { ft } from '../lib/frenchType';
 
 const columns = [
   {
-    title: 'Exigence analytique',
+    title: 'Exigence de conception',
     text: ft(
-      'Structurer rapidement des environnements complexes, identifier les vrais points de décision et rendre les arbitrages visibles.',
+      'Transformer des besoins complexes en expériences simples, cohérentes, accessibles et défendables.',
     ),
   },
   {
-    title: 'Crédibilité métier',
+    title: 'Culture du conseil',
     text: ft(
-      'Dialoguer avec les dirigeants, les équipes métiers, Produit et IT sans opposer stratégie, technologie et exécution.',
+      'Dialoguer avec les décideurs, les métiers, les designers et les équipes techniques sans opposer stratégie et exécution.',
     ),
   },
   {
-    title: 'Culture du concret',
+    title: 'Pratique AI Native',
     text: ft(
-      'Tester les hypothèses avec des prototypes, des agents et des workflows intégrés aux usages réels.',
+      'Utiliser quotidiennement l\u2019IA pour explorer, prototyper, produire, tester et documenter, tout en conservant un contrôle humain explicite.',
+    ),
+  },
+  {
+    title: 'Transmission',
+    text: ft(
+      'Faire monter les équipes en compétence et transformer les expérimentations en capacités durables.',
     ),
   },
 ];
@@ -27,13 +33,13 @@ export function MoonFitSection() {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (
-    <section id="moon" className="bg-light-surface px-6 py-20 md:px-10 md:py-32">
+    <section id="onepoint" className="bg-light-surface px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
-          Pourquoi MOON
+          Pourquoi Onepoint
         </p>
         <h2 className="mt-4 max-w-4xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          {ft('Une même conviction : l’IA doit produire des ')}
+          {ft('Une même ambition\u202f: transformer l\u2019')}
           <em
             className="not-italic"
             style={{
@@ -41,23 +47,36 @@ export function MoonFitSection() {
               fontStyle: 'italic',
             }}
           >
-            décisions
+            innovation
           </em>
-          {ft(' et des usages concrets.')}
+          {ft(' en usage.')}
         </h2>
         <FrenchText
           as="p"
           className="mt-6 max-w-3xl text-base leading-relaxed text-ink/70 md:text-lg"
         >
-          L’approche de MOON — analyser les processus, challenger les
-          organisations, prioriser les cas d’usage et construire des solutions
-          réellement utiles — correspond à la manière dont j’aborde la
-          transformation IA.
+          La rencontre entre Design, Produit, Data et Engineering correspond à
+          la manière dont j&apos;aborde les produits numériques : comprendre les
+          usages avant de construire, expérimenter avant de généraliser et faire
+          de la transmission une condition de réussite.
         </FrenchText>
+        <div className="mt-4 max-w-3xl space-y-4 text-base leading-relaxed text-ink/70 md:text-lg">
+          <FrenchText as="p">
+            Je souhaite contribuer à la conception de produits AI Native, à
+            l&apos;évolution de Design Systems et à la diffusion de nouvelles
+            pratiques de conception auprès d&apos;équipes pluridisciplinaires.
+          </FrenchText>
+          <FrenchText as="p">
+            Mon expérience du conseil, des grands comptes et du secteur public me
+            permet d&apos;intervenir aussi bien dans la conception que dans la
+            facilitation, la structuration des méthodes et l&apos;accompagnement des
+            équipes.
+          </FrenchText>
+        </div>
 
         <div
           ref={ref}
-          className={`mt-12 grid grid-cols-1 gap-8 transition-all duration-700 ease-out md:mt-16 md:grid-cols-3 md:gap-10 ${
+          className={`mt-12 grid grid-cols-1 gap-8 transition-all duration-700 ease-out md:mt-16 md:grid-cols-2 lg:grid-cols-4 md:gap-10 ${
             visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
@@ -78,9 +97,9 @@ export function MoonFitSection() {
           as="p"
           className="mt-14 max-w-3xl border-t border-soft-border pt-8 text-sm leading-relaxed text-ink/55 md:text-base"
         >
-          Je ne me positionne pas comme ingénieur ML. J’apporte une capacité
-          hybride de conseil, de structuration, de prototypage et d’adoption de
-          l’IA générative.
+          Je me positionne comme un Lead Product Designer capable de relier
+          recherche utilisateur, Design Systems, conseil et intelligence
+          artificielle générative pour construire des produits réellement adoptés.
         </FrenchText>
       </div>
     </section>

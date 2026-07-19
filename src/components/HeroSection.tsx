@@ -4,7 +4,7 @@ import { ft } from '../lib/frenchType';
 
 const heroVideoSrc = '/assets/vid/hero.mp4';
 const heroPosterSrc = '/assets/hero-still.jpg';
-const heroPills = ['Paris & hybride', 'Disponible rapidement', 'Français · Anglais'];
+const heroPills = ['Paris & hybride', '12+ ans d\u2019expérience', 'Conseil · Grands comptes · Secteur public'];
 
 // How many viewport heights the hero occupies (scroll distance)
 const SCROLL_VH = 3;
@@ -78,6 +78,10 @@ export function HeroSection() {
     document
       .querySelector('#approche')
       ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
+  const handleCvClick = () => {
+    window.open('/CVTFOP20726.pdf', '_blank');
   };
 
   // Copy fades out as you scroll deeper into the video
@@ -158,33 +162,21 @@ export function HeroSection() {
         >
           <div className="mx-auto w-full max-w-6xl text-left">
             <p className="text-[11px] font-semibold uppercase tracking-[0.28em] text-off-white/80 sm:text-xs">
-              AI Strategy · Process · Execution
+              AI Native Design · Product · Systems
             </p>
 
             <h1 className="mt-5 max-w-4xl text-4xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
-              <span className="block">{ft('L\u2019IA est disponible.')}</span>
-              <span className="block">
-                {ft('La ')}
-                <em
-                  className="not-italic"
-                  style={{
-                    fontFamily: "'Instrument Serif', serif",
-                    fontStyle: 'italic',
-                  }}
-                >
-                  valeur
-                </em>
-                {ft(' reste \u00e0 construire.')}
-              </span>
+              {ft('Concevoir les produits que l\u2019IA rend désormais possibles.')}
             </h1>
 
             <FrenchText
               as="p"
               className="mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base"
             >
-              J&apos;aide les directions &agrave; comprendre leurs processus, prioriser les
-              cas d&apos;usage IA et construire des capacit&eacute;s r&eacute;ellement utilisables
-              par les &eacute;quipes.
+              J&apos;aide les organisations &agrave; imaginer, concevoir et faire adopter
+              des produits num&eacute;riques o&ugrave; l&apos;intelligence artificielle enrichit
+              l&apos;exp&eacute;rience utilisateur, acc&eacute;l&egrave;re le travail des &eacute;quipes Produit
+              et transforme les fa&ccedil;ons de concevoir.
             </FrenchText>
 
             <div className="mt-8 flex flex-col items-start gap-3 sm:gap-4">
@@ -204,13 +196,13 @@ export function HeroSection() {
                   as="p"
                   className="mb-2 text-left text-xs font-medium text-off-white/75 sm:mb-0 sm:hidden"
                 >
-                  De l&apos;analyse &agrave; l&apos;usage op&eacute;rationnel.
+                  Product Design · UX Research · Design Systems · Design Engineering
                 </FrenchText>
                 <FrenchText
                   as="p"
                   className="hidden text-sm font-medium text-off-white sm:block"
                 >
-                  Audit, cadrage, agents IA, POC et adoption op&eacute;rationnelle.
+                  De la Product Discovery au handoff développeurs : cadrage, recherche utilisateur, conception UX/UI, prototypage, Design Systems, tests et adoption.
                 </FrenchText>
                 <button
                   type="button"
@@ -221,6 +213,13 @@ export function HeroSection() {
                   <span className="hidden sm:inline">
                     {ft('D\u00e9couvrir mon approche')}
                   </span>
+                </button>
+                <button
+                  type="button"
+                  onClick={handleCvClick}
+                  className="mt-2 whitespace-nowrap rounded-2xl border border-white/25 px-4 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:mt-0 sm:px-5 sm:text-sm"
+                >
+                  Voir mon CV
                 </button>
               </div>
             </div>

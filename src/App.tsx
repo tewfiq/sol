@@ -10,6 +10,7 @@ import { MoonFitSection } from './components/MoonFitSection';
 import { TeachingSection } from './components/TeachingSection';
 import { EducationSection } from './components/EducationSection';
 import { ContactSection } from './components/ContactSection';
+import { ToolkitSection } from './components/ToolkitSection';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
         <ApproachCardsSection />
         <ContributionSection />
         <MetricsSection />
+        <ToolkitSection />
         <ExperienceSection />
         <MoonFitSection />
         <TeachingSection />

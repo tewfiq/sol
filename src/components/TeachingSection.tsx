@@ -3,16 +3,18 @@ import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
 const topics = [
+  'AI Native Design',
   'IA générative',
-  'Prompt Engineering',
-  'Agents IA',
-  'Product Discovery',
   'Product Design',
-  'Automatisation',
-  'Prototypage',
+  'UX Research',
+  'Figma',
+  'Design Systems',
+  'Prompt Engineering',
+  'Design Engineering',
+  'Prototypage rapide',
+  'Design Sprint',
   'Innovation',
-  'Workshops',
-  'Mentorat',
+  'Neuro-marketing',
 ];
 
 const slides = [
@@ -37,22 +39,22 @@ export function TeachingSection() {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (
-    <section id="teaching" className="overflow-hidden bg-cream py-20 md:py-32">
+    <section id="transmission" className="overflow-hidden bg-cream py-20 md:py-32">
       {/* Header */}
       <div className="mx-auto max-w-6xl px-6 md:px-10">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
           Transmission
         </p>
         <h2 className="mt-4 max-w-3xl whitespace-pre-line text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
-          {ft('Construire, documenter,\ntransmettre.')}
+          {ft('Construire. Partager.\nFaire grandir.')}
         </h2>
         <FrenchText
           as="p"
           className="mt-6 max-w-2xl text-base leading-relaxed text-ink/70 md:text-lg"
         >
-          Depuis 2023, j'enseigne l'IA générative, le Product Design,
-          l'automatisation et les méthodes d'innovation auprès d'étudiants en
-          Bachelor, Master et MBA.
+          Depuis 2023, j&apos;enseigne le Product Design, l&apos;AI Native Design, l&apos;UX
+          Research, les Design Systems, le prototypage et l&apos;IA générative auprès
+          d&apos;étudiants en Bachelor, Master et MBA.
         </FrenchText>
       </div>
 
