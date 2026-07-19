@@ -4,10 +4,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        ink: '#172018',
-        'deep-green': '#172A1C',
-        'primary-green': '#326B45',
-        sage: '#AABBA7',
+        ink: '#0F1A24',
+        'deep-green': '#0F1E2E',
+        'primary-green': '#1B4D6E',
+        sage: '#8FAAB8',
         cream: '#F3EDE3',
         'off-white': '#FCFAF6',
         'light-surface': '#FFFDF9',
