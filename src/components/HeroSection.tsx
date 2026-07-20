@@ -4,36 +4,67 @@ import { ft } from '../lib/frenchType';
 
 const heroVideoSrc = '/assets/vid/hero.mp4';
 const heroPosterSrc = '/assets/hero-still.jpg';
-// How many viewport heights the hero occupies (scroll distance)
-const SCROLL_VH = 3;
+
+function getScrollVh() {
+  return typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 3;
+}
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [progress, setProgress] = useState(0);
+  const [scrollVh, setScrollVh] = useState(getScrollVh);
   const seekingRef = useRef(false);
   const rafRef = useRef<number>(0);
+  const blobUrlRef = useRef<string | null>(null);
 
-  // Mobile browsers can't reliably seek video frames on scroll
-  const isMobile = typeof window !== 'undefined' &&
-    (window.innerWidth < 768 || /iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
-
-  // Load video as blob for guaranteed seekability (desktop only)
+  // Update scroll distance on resize
   useEffect(() => {
-    if (isMobile) return;
+    const onResize = () => setScrollVh(getScrollVh());
+    window.addEventListener('resize', onResize);
+    return () => window.removeEventListener('resize', onResize);
+  }, []);
+
+  // Load video — try blob for seekability, fallback to direct URL
+  useEffect(() => {
     let cancelled = false;
+
+    const setSource = (src: string) => {
+      if (!cancelled) setVideoSrc(src);
+    };
+
     fetch(heroVideoSrc)
       .then((r) => (r.ok ? r.blob() : Promise.reject()))
       .then((blob) => {
-        if (!cancelled) setBlobUrl(URL.createObjectURL(blob));
+        if (!cancelled) {
+          const url = URL.createObjectURL(blob);
+          blobUrlRef.current = url;
+          setVideoSrc(url);
+        }
       })
-      .catch(() => {});
+      .catch(() => setSource(heroVideoSrc));
+
+    const timer = setTimeout(() => setSource(heroVideoSrc), 4000);
+
     return () => {
       cancelled = true;
+      clearTimeout(timer);
+      if (blobUrlRef.current) {
+        URL.revokeObjectURL(blobUrlRef.current);
+      }
     };
   }, []);
+
+  const handleVideoReady = () => setVideoReady(true);
+
+  // Safety timeout: show content even if video events never fire
+  useEffect(() => {
+    if (videoReady) return;
+    const t = setTimeout(() => setVideoReady(true), 8000);
+    return () => clearTimeout(t);
+  }, [videoReady]);
 
   // Scroll → video scrub
   useEffect(() => {
@@ -95,7 +126,7 @@ export function HeroSection() {
       id="top"
       ref={containerRef}
       className="relative bg-deep-green"
-      style={{ height: `${SCROLL_VH * 100}vh` }}
+      style={{ height: `${scrollVh * 100}vh` }}
     >
       {/* Sticky viewport for the video + copy */}
       <div
@@ -106,20 +137,21 @@ export function HeroSection() {
           src={heroPosterSrc}
           alt=""
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
-          style={{ opacity: videoReady && !isMobile ? 0 : 1 }}
+          style={{ opacity: videoReady ? 0 : 1 }}
           aria-hidden="true"
         />
 
         {/* Scrubbed video */}
-        {blobUrl && (
+        {videoSrc && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
-            src={blobUrl}
+            src={videoSrc}
             muted
             playsInline
             preload="auto"
-            onLoadedMetadata={() => setVideoReady(true)}
+            onCanPlay={handleVideoReady}
+            onLoadedData={handleVideoReady}
             aria-hidden="true"
           />
         )}
@@ -129,7 +161,7 @@ export function HeroSection() {
 
         {/* Copy content */}
         <div
-          className="relative z-10 flex h-full flex-col justify-end px-6 pb-12 md:px-10 md:pb-16"
+          className="relative z-10 flex h-full flex-col justify-center px-6 pb-16 pt-28 md:px-10 md:pb-32 md:pt-48"
           style={{
             opacity: copyOpacity,
             transform: `translateY(${progress * -30}px)`,
@@ -140,7 +172,7 @@ export function HeroSection() {
               AI Native Design · Product · Systems
             </p>
 
-            <h1 className="mt-5 max-w-4xl text-4xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
+            <h1 className="mt-4 max-w-4xl text-3xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
               {ft('Concevoir les produits que l\u2019IA rend désormais possibles.')}
             </h1>
 
@@ -152,7 +184,7 @@ export function HeroSection() {
               et prêts à être adoptés par les utilisateurs comme par les équipes.
             </FrenchText>
 
-            <div className="mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center sm:gap-3">
+            <div className="mt-6 sm:mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center sm:gap-3">
               <button
                 type="button"
                 onClick={handleCta}
