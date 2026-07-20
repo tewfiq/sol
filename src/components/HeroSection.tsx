@@ -12,13 +12,13 @@ function isMobileWidth() {
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const copyRef = useRef<HTMLDivElement>(null);
+  const progressRef = useRef(0);
+  const blobUrlRef = useRef<string | null>(null);
+
   const [isMobile, setIsMobile] = useState(isMobileWidth);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [videoReady, setVideoReady] = useState(false);
-  const [progress, setProgress] = useState(0);
-  const seekingRef = useRef(false);
-  const rafRef = useRef<number>(0);
-  const blobUrlRef = useRef<string | null>(null);
 
   useEffect(() => {
     const onResize = () => setIsMobile(isMobileWidth());
@@ -64,48 +64,47 @@ export function HeroSection() {
     return () => clearTimeout(t);
   }, [videoReady, isMobile]);
 
-  // Desktop only: scroll → video scrub
+  // Desktop only: scroll → smooth video scrub via RAF loop (no React re-renders)
   useEffect(() => {
     if (isMobile) return;
     const video = videoRef.current;
     if (!video || !videoReady) return;
 
-    let ticking = false;
+    let rafId = 0;
+
+    const applyFrame = () => {
+      rafId = 0;
+      const v = videoRef.current;
+      const copy = copyRef.current;
+      if (!v || !copy) return;
+
+      const t = progressRef.current;
+
+      copy.style.opacity = String(Math.max(0, 1 - t * 2.5));
+      copy.style.transform = `translateY(${t * -30}px)`;
+
+      v.currentTime = t * (v.duration || 1);
+    };
+
     const onScroll = () => {
-      if (ticking) return;
-      ticking = true;
-      rafRef.current = requestAnimationFrame(() => {
-        ticking = false;
-        const el = containerRef.current;
-        if (!el || !video) return;
-        const rect = el.getBoundingClientRect();
-        const trackHeight = el.offsetHeight - window.innerHeight;
-        const scrolled = -rect.top;
-        const t = Math.max(0, Math.min(1, scrolled / trackHeight));
-        setProgress(t);
+      const el = containerRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const trackHeight = el.offsetHeight - window.innerHeight;
+      const scrolled = -rect.top;
+      progressRef.current = Math.max(0, Math.min(1, scrolled / trackHeight));
 
-        if (seekingRef.current) return;
-        const target = t * (video.duration || 1);
-        if (Math.abs(video.currentTime - target) > 0.02) {
-          seekingRef.current = true;
-          video.currentTime = target;
-        }
-      });
+      if (!rafId) rafId = requestAnimationFrame(applyFrame);
     };
 
-    const onSeeked = () => {
-      seekingRef.current = false;
-    };
-    video.addEventListener('seeked', onSeeked);
     window.addEventListener('scroll', onScroll, { passive: true });
     onScroll();
 
     return () => {
       window.removeEventListener('scroll', onScroll);
-      video.removeEventListener('seeked', onSeeked);
-      cancelAnimationFrame(rafRef.current);
+      cancelAnimationFrame(rafId);
     };
-  }, [isMobile, videoReady]);
+  }, [videoReady, isMobile]);
 
   const handleCta = () => {
     document
@@ -116,8 +115,6 @@ export function HeroSection() {
   const handleCvClick = () => {
     window.open('/CV_Tewfiq_Ferahi_Onepoint_2026.pdf', '_blank');
   };
-
-  const copyOpacity = isMobile ? 1 : Math.max(0, 1 - progress * 2.5);
 
   return (
     <section
@@ -162,15 +159,9 @@ export function HeroSection() {
 
         {/* Copy content */}
         <div
+          ref={copyRef}
           className="relative z-10 flex min-h-dvh flex-col justify-center px-6 pb-16 pt-28 md:px-10 md:pb-32 md:pt-48"
-          style={
-            isMobile
-              ? undefined
-              : {
-                  opacity: copyOpacity,
-                  transform: `translateY(${progress * -30}px)`,
-                }
-          }
+          style={isMobile ? undefined : { opacity: 1, transform: 'translateY(0)' }}
         >
           <div className="mx-auto w-full max-w-6xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-off-white/80">

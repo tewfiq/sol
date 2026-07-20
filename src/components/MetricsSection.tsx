@@ -4,12 +4,12 @@ import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
 const bento: { featured: boolean; className: string }[] = [
-  { featured: true, className: 'sm:col-span-2' },
+  { featured: true, className: 'sm:col-span-2 lg:col-span-2' },
   { featured: false, className: '' },
   { featured: false, className: '' },
+  { featured: true, className: 'sm:col-span-2 lg:col-span-2' },
   { featured: false, className: '' },
-  { featured: false, className: '' },
-  { featured: true, className: 'sm:col-span-2' },
+  { featured: false, className: 'lg:col-start-2 lg:col-span-2' },
 ];
 
 export function MetricsSection() {
@@ -26,7 +26,7 @@ export function MetricsSection() {
           Recherche, conception, prototypage, expérimentation et transmission.
         </FrenchText>
 
-        <div className="mt-12 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3 md:mt-16">
+        <div className="mt-12 grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3 md:mt-16 md:gap-5">
           {metrics.map((metric, i) => (
             <MetricCard
               key={metric.label}
@@ -37,7 +37,7 @@ export function MetricsSection() {
           ))}
         </div>
 
-        <div className="mt-10 border-t border-soft-border pt-6">
+        <div className="mt-12 border-t border-soft-border pt-6 md:mt-16">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
             Pratique courante
           </p>
