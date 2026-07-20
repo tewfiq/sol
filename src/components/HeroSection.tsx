@@ -5,30 +5,30 @@ import { ft } from '../lib/frenchType';
 const heroVideoSrc = '/assets/vid/hero.mp4';
 const heroPosterSrc = '/assets/hero-still.jpg';
 
-function getScrollVh() {
-  return typeof window !== 'undefined' && window.innerWidth < 768 ? 2 : 3;
+function isMobileWidth() {
+  return typeof window !== 'undefined' && window.innerWidth < 768;
 }
 
 export function HeroSection() {
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const [isMobile, setIsMobile] = useState(isMobileWidth);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [videoReady, setVideoReady] = useState(false);
   const [progress, setProgress] = useState(0);
-  const [scrollVh, setScrollVh] = useState(getScrollVh);
   const seekingRef = useRef(false);
   const rafRef = useRef<number>(0);
   const blobUrlRef = useRef<string | null>(null);
 
-  // Update scroll distance on resize
   useEffect(() => {
-    const onResize = () => setScrollVh(getScrollVh());
+    const onResize = () => setIsMobile(isMobileWidth());
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // Load video — try blob for seekability, fallback to direct URL
+  // Desktop only: load video — try blob for seekability, fallback direct URL
   useEffect(() => {
+    if (isMobile) return;
     let cancelled = false;
 
     const setSource = (src: string) => {
@@ -51,23 +51,22 @@ export function HeroSection() {
     return () => {
       cancelled = true;
       clearTimeout(timer);
-      if (blobUrlRef.current) {
-        URL.revokeObjectURL(blobUrlRef.current);
-      }
+      if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current);
     };
-  }, []);
+  }, [isMobile]);
 
   const handleVideoReady = () => setVideoReady(true);
 
-  // Safety timeout: show content even if video events never fire
+  // Desktop only: safety timeout for videoReady
   useEffect(() => {
-    if (videoReady) return;
+    if (videoReady || isMobile) return;
     const t = setTimeout(() => setVideoReady(true), 8000);
     return () => clearTimeout(t);
-  }, [videoReady]);
+  }, [videoReady, isMobile]);
 
-  // Scroll → video scrub
+  // Desktop only: scroll → video scrub
   useEffect(() => {
+    if (isMobile) return;
     const video = videoRef.current;
     if (!video || !videoReady) return;
 
@@ -106,7 +105,7 @@ export function HeroSection() {
       video.removeEventListener('seeked', onSeeked);
       cancelAnimationFrame(rafRef.current);
     };
-  }, [videoReady]);
+  }, [isMobile, videoReady]);
 
   const handleCta = () => {
     document
@@ -118,31 +117,33 @@ export function HeroSection() {
     window.open('/CV_Tewfiq_Ferahi_Onepoint_2026.pdf', '_blank');
   };
 
-  // Copy fades out as you scroll deeper into the video
-  const copyOpacity = Math.max(0, 1 - progress * 2.5);
+  const copyOpacity = isMobile ? 1 : Math.max(0, 1 - progress * 2.5);
 
   return (
     <section
       id="top"
       ref={containerRef}
       className="relative bg-deep-green"
-      style={{ height: `${scrollVh * 100}vh` }}
+      style={isMobile ? undefined : { height: '300vh' }}
     >
-      {/* Sticky viewport for the video + copy */}
       <div
-        className="sticky top-0 min-h-[100dvh] w-full overflow-hidden"
+        className={
+          isMobile
+            ? 'relative min-h-dvh w-full overflow-hidden'
+            : 'sticky top-0 min-h-dvh w-full overflow-hidden'
+        }
       >
-        {/* Poster (visible until video paints) */}
+        {/* Poster (always visible on mobile) */}
         <img
           src={heroPosterSrc}
           alt=""
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
-          style={{ opacity: videoReady ? 0 : 1 }}
+          style={{ opacity: isMobile ? 1 : videoReady ? 0 : 1 }}
           aria-hidden="true"
         />
 
-        {/* Scrubbed video */}
-        {videoSrc && (
+        {/* Desktop only: scrubbed video */}
+        {!isMobile && videoSrc && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
@@ -161,11 +162,15 @@ export function HeroSection() {
 
         {/* Copy content */}
         <div
-          className="relative z-10 flex h-full flex-col justify-center px-6 pb-16 pt-28 md:px-10 md:pb-32 md:pt-48"
-          style={{
-            opacity: copyOpacity,
-            transform: `translateY(${progress * -30}px)`,
-          }}
+          className="relative z-10 flex min-h-dvh flex-col justify-center px-6 pb-16 pt-28 md:px-10 md:pb-32 md:pt-48"
+          style={
+            isMobile
+              ? undefined
+              : {
+                  opacity: copyOpacity,
+                  transform: `translateY(${progress * -30}px)`,
+                }
+          }
         >
           <div className="mx-auto w-full max-w-6xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-off-white/80">
