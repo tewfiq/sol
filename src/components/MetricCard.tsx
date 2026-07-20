@@ -46,7 +46,7 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
       {metric.caption && (
         <p
           className={`mt-1.5 text-sm leading-relaxed ${
-            featured ? 'text-off-white/55' : 'text-ink/45'
+            featured ? 'text-off-white/50' : 'text-ink/50'
           }`}
         >
           {metric.caption}

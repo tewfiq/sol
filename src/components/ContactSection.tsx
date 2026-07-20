@@ -68,7 +68,7 @@ function FooterScrollVideo() {
   }, [ready]);
 
   return (
-    <div ref={wrapRef} className="mt-16 overflow-hidden rounded-2xl border border-white/10">
+    <div ref={wrapRef} className="mt-16 overflow-hidden rounded-2xl border border-white/12">
       <div className="relative aspect-video w-full bg-black/40">
         <img
           src={footerPosterSrc}
@@ -113,13 +113,7 @@ export function ContactSection() {
         </p>
         <h2 className="mt-5 max-w-3xl text-4xl font-normal leading-[1.1] text-off-white sm:text-5xl md:text-6xl lg:text-7xl">
           {ft('Construisons le prochain produit ')}
-          <em
-            className="not-italic"
-            style={{
-              fontFamily: "'Instrument Serif', serif",
-              fontStyle: 'italic',
-            }}
-          >
+          <em className="italic font-medium">
             AI Native
           </em>
           .
@@ -159,7 +153,7 @@ export function ContactSection() {
           </a>
         </div>
 
-        <dl className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/10 bg-white/10 sm:grid-cols-2 lg:grid-cols-4">
+        <dl className="mt-14 grid grid-cols-1 gap-px overflow-hidden rounded-2xl border border-white/12 bg-white/12 sm:grid-cols-2 lg:grid-cols-4">
           {contactItems.map(({ icon: Icon, label, href }) => {
             const content = (
               <div className="flex items-center gap-3 bg-deep-green/40 px-5 py-5 backdrop-blur-sm">
@@ -186,14 +180,14 @@ export function ContactSection() {
 
         <FrenchText
           as="p"
-          className="mt-12 max-w-2xl text-base leading-relaxed text-off-white/60 md:text-lg"
+          className="mt-12 max-w-2xl text-base leading-relaxed text-off-white/50 md:text-lg"
         >
           Disponible pour rejoindre une équipe
           et concevoir des produits AI Native à fort impact.
         </FrenchText>
       </div>
 
-      <footer className="mx-auto mt-20 max-w-6xl border-t border-white/10 pt-8">
+      <footer className="mx-auto mt-20 max-w-6xl border-t border-white/12 pt-8">
         <p className="text-sm font-medium text-off-white">
           Tewfiq Ferahi — Lead AI Native Product Designer
         </p>

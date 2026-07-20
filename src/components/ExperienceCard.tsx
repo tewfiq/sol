@@ -68,7 +68,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
         )}
 
         {experience.clients && (
-          <p className="mt-4 text-sm leading-relaxed text-ink/55">
+          <p className="mt-4 text-sm leading-relaxed text-ink/50">
             {experience.clients}
           </p>
         )}

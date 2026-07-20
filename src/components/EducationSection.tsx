@@ -25,9 +25,6 @@ export function EducationSection() {
   return (
     <section id="formation" className="bg-off-white px-6 py-20 md:px-10 md:py-28">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
-          Formation
-        </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
           {ft('Analyse, management et conception.')}
         </h2>
@@ -47,7 +44,7 @@ export function EducationSection() {
                 <h3 className="text-xl font-medium text-ink md:text-2xl">
                   {d.title}
                 </h3>
-                <p className="mt-1 text-sm text-ink/60 md:text-base">{d.school}</p>
+                <p className="mt-1 text-sm text-ink/50 md:text-base">{d.school}</p>
               </div>
             ))}
           </div>

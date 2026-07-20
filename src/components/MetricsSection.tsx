@@ -16,9 +16,6 @@ export function MetricsSection() {
   return (
     <section id="preuves" className="bg-cream px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
-          Pratique documentée
-        </p>
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
           {ft('Une pratique quotidienne du AI Native Design.')}
         </h2>
@@ -46,7 +43,7 @@ export function MetricsSection() {
           </p>
           <FrenchText
             as="p"
-            className="mt-3 text-sm leading-relaxed text-ink/60 md:text-base"
+            className="mt-3 text-sm leading-relaxed text-ink/50 md:text-base"
           >
             Figma · Claude · ChatGPT · Gemini · Figma Make · Google Stitch · Cursor · Codex · MCP Figma
           </FrenchText>

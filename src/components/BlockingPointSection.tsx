@@ -58,7 +58,7 @@ export function BlockingPointSection() {
               {pillars.map((p) => (
                 <div key={p.label}>
                   <p className="text-base font-medium text-ink">{p.label}</p>
-                  <p className="mt-1 text-sm text-ink/60">{p.description}</p>
+                  <p className="mt-1 text-sm text-ink/50">{p.description}</p>
                 </div>
               ))}
             </div>

@@ -29,9 +29,6 @@ export function MoonFitSection() {
   return (
     <section id="onepoint" className="bg-light-surface px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
-          Pourquoi Onepoint
-        </p>
         <h2 className="mt-4 max-w-4xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
           {ft('Transformer l\u2019innovation en usage.')}
         </h2>
@@ -72,7 +69,7 @@ export function MoonFitSection() {
 
         <FrenchText
           as="p"
-          className="mt-14 max-w-3xl border-t border-soft-border pt-8 text-sm leading-relaxed text-ink/55 md:text-base"
+          className="mt-14 max-w-3xl border-t border-soft-border pt-8 text-sm leading-relaxed text-ink/50 md:text-base"
         >
           Je souhaite contribuer à la conception de produits AI Native
           et à l&apos;évolution des pratiques Design au sein de Onepoint.

@@ -37,9 +37,6 @@ export function TeachingSection() {
     <section id="transmission" className="overflow-hidden bg-cream py-20 md:py-32">
       {/* Header */}
       <div className="mx-auto max-w-6xl px-6 md:px-10">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
-          Transmission
-        </p>
         <h2 className="mt-4 max-w-3xl whitespace-pre-line text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
           {ft('Construire. Partager.\nFaire grandir.')}
         </h2>

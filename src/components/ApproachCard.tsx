@@ -23,7 +23,7 @@ export function ApproachCard({
         zIndex: index + 1,
       }}
     >
-      <article className="group relative flex min-h-[min(72vh,38rem)] flex-col overflow-hidden rounded-[1.75rem] border border-white/[0.14] bg-gradient-to-br from-[#1e3524] via-deep-green to-[#0f1c13] p-7 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.65)] md:min-h-[min(74vh,40rem)] md:p-10 lg:p-12">
+      <article className="group relative flex min-h-[min(72vh,38rem)] flex-col overflow-hidden rounded-[1.75rem] border border-white/12 bg-gradient-to-br from-[#1e3524] via-deep-green to-[#0f1c13] p-7 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.65)] md:min-h-[min(74vh,40rem)] md:p-10 lg:p-12">
         {/* Ambient glow */}
         <div
           className="pointer-events-none absolute -right-16 -top-20 h-64 w-64 rounded-full bg-primary-green/25 blur-3xl"
@@ -36,7 +36,7 @@ export function ApproachCard({
 
         {/* Giant watermark step */}
         <span
-          className="pointer-events-none absolute -right-2 top-4 select-none font-serif text-[9rem] leading-none text-white/[0.04] md:top-2 md:text-[12rem] lg:text-[14rem]"
+          className="pointer-events-none absolute -right-2 top-4 select-none text-[9rem] font-medium leading-none text-white/[0.04] md:top-2 md:text-[12rem] lg:text-[14rem]"
           aria-hidden="true"
         >
           {step}
