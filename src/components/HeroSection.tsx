@@ -80,8 +80,13 @@ export function HeroSection() {
 
       const t = progressRef.current;
 
-      copy.style.opacity = String(Math.max(0, 1 - t * 2.5));
-      copy.style.transform = `translateY(${t * -30}px)`;
+      const fadeOut = 1 - Math.min(1, t * 3.33);
+      const fadeIn = Math.max(0, Math.min(1, (t - 0.7) * 3.33));
+      copy.style.opacity = String(Math.max(fadeOut, fadeIn));
+
+      const rise = Math.min(1, t * 2.5);
+      const settle = Math.max(0, Math.min(1, (t - 0.6) * 2.5));
+      copy.style.transform = `translateY(${(rise - settle) * -25}px)`;
 
       v.currentTime = t * (v.duration || 1);
     };
@@ -113,7 +118,7 @@ export function HeroSection() {
   };
 
   const handleCvClick = () => {
-    window.open('/CV_Tewfiq_Ferahi_Onepoint_2026.pdf', '_blank');
+    window.open('/CV_Tewfiq_Ferahi_Onepoint_2026_light.pdf', '_blank');
   };
 
   return (
@@ -165,20 +170,36 @@ export function HeroSection() {
         >
           <div className="mx-auto w-full max-w-6xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-off-white/80">
-              AI Native Design · Product · Systems
+              Lead AI Native Product Designer
             </p>
 
-            <h1 className="mt-4 max-w-4xl text-3xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
-              {ft('Concevoir les produits que l\u2019IA rend désormais possibles.')}
+            <h1 className="mt-4 max-w-5xl whitespace-pre-line text-3xl font-normal leading-[1.1] tracking-tight text-off-white sm:text-6xl md:text-7xl lg:text-[88px]">
+              {ft('Je transforme\ndes possibilit\u00e9s IA\nen produits utiles.')}
             </h1>
 
             <FrenchText
               as="p"
               className="mt-6 max-w-xl text-sm font-medium text-off-white/80 md:text-base"
             >
-              Je conçois des produits AI Native utiles, accessibles
-              et prêts à être adoptés par les utilisateurs comme par les équipes.
+              Product Designer senior, j&apos;aide les équipes à concevoir
+              des expériences AI Native simples, accessibles
+              et réellement adoptées.
             </FrenchText>
+
+            <div className="mt-6 flex flex-wrap gap-2">
+              {['12+ ans d\'expérience', 'Conseil', 'Grands comptes', 'Secteur public'].map((chip) => (
+                <span key={chip} className="rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-off-white/70 backdrop-blur-sm">
+                  {chip}
+                </span>
+              ))}
+            </div>
+            <div className="mt-2 flex flex-wrap gap-2">
+              {['Product Discovery', 'UX Research', 'Design Systems', 'Prototypage', 'Design Engineering'].map((chip) => (
+                <span key={chip} className="rounded-lg border border-white/[0.07] bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-off-white/50 backdrop-blur-sm">
+                  {chip}
+                </span>
+              ))}
+            </div>
 
             <div className="mt-6 sm:mt-8 flex flex-col items-start gap-2.5 sm:flex-row sm:items-center sm:gap-3">
               <button
@@ -186,10 +207,7 @@ export function HeroSection() {
                 onClick={handleCta}
                 className="whitespace-nowrap rounded-2xl bg-off-white px-5 py-2.5 text-xs font-medium text-ink transition-colors hover:bg-off-white/90 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
               >
-                <span className="sm:hidden">{ft('Voir mon approche')}</span>
-                <span className="hidden sm:inline">
-                  {ft('Découvrir mon approche')}
-                </span>
+                {ft('Découvrir ma démarche')}
               </button>
               <button
                 type="button"
@@ -199,6 +217,10 @@ export function HeroSection() {
                 Voir mon CV
               </button>
             </div>
+
+            <p className="absolute bottom-8 left-1/2 -translate-x-1/2 text-[10px] font-semibold uppercase tracking-[0.25em] text-off-white/30 animate-fade-in-down">
+              Scroll
+            </p>
           </div>
         </div>
       </div>
