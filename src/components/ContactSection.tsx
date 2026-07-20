@@ -1,6 +1,98 @@
+import { useEffect, useRef, useState } from 'react';
 import { Mail, FileText, MapPin, Phone, Globe } from 'lucide-react';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+
+const footerVideoSrc = '/assets/vid/footer.mp4';
+const footerPosterSrc = '/assets/footer-still.jpg';
+
+function FooterScrollVideo() {
+  const wrapRef = useRef<HTMLDivElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
+  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [ready, setReady] = useState(false);
+  const seekingRef = useRef(false);
+  const rafRef = useRef(0);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(footerVideoSrc)
+      .then((r) => (r.ok ? r.blob() : Promise.reject()))
+      .then((blob) => {
+        if (!cancelled) setBlobUrl(URL.createObjectURL(blob));
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !ready) return;
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      rafRef.current = requestAnimationFrame(() => {
+        ticking = false;
+        const el = wrapRef.current;
+        if (!el || !video) return;
+        const rect = el.getBoundingClientRect();
+        const vh = window.innerHeight;
+        // Map: element top enters viewport → bottom leaves
+        const t = Math.max(0, Math.min(1, (vh - rect.top) / (vh + rect.height)));
+
+        if (seekingRef.current) return;
+        const target = t * (video.duration || 1);
+        if (Math.abs(video.currentTime - target) > 0.02) {
+          seekingRef.current = true;
+          video.currentTime = target;
+        }
+      });
+    };
+
+    const onSeeked = () => {
+      seekingRef.current = false;
+    };
+    video.addEventListener('seeked', onSeeked);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      video.removeEventListener('seeked', onSeeked);
+      cancelAnimationFrame(rafRef.current);
+    };
+  }, [ready]);
+
+  return (
+    <div ref={wrapRef} className="mt-16 overflow-hidden rounded-2xl border border-white/10">
+      <div className="relative aspect-video w-full bg-black/40">
+        <img
+          src={footerPosterSrc}
+          alt=""
+          className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
+          style={{ opacity: ready ? 0 : 1 }}
+          aria-hidden="true"
+        />
+        {blobUrl && (
+          <video
+            ref={videoRef}
+            className="absolute inset-0 h-full w-full object-cover"
+            src={blobUrl}
+            muted
+            playsInline
+            preload="auto"
+            onLoadedMetadata={() => setReady(true)}
+            aria-hidden="true"
+          />
+        )}
+      </div>
+    </div>
+  );
+}
 
 const contactItems = [
   { icon: MapPin, label: 'Paris, France' },
@@ -89,6 +181,8 @@ export function ContactSection() {
             );
           })}
         </dl>
+
+        <FooterScrollVideo />
 
         <FrenchText
           as="p"
