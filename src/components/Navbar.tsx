@@ -49,7 +49,7 @@ export function Navbar() {
             className="flex flex-col items-start"
             aria-label={ft('Navigation principale')}
           >
-            <div className="flex items-center gap-1 rounded-2xl bg-off-white/95 py-2 pr-2 pl-2.5 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:gap-2 sm:py-2.5 sm:pr-3 sm:pl-3">
+            <div className="flex items-center gap-1 rounded-2xl bg-off-white/95 py-2 pr-2 pl-0.5 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:gap-2 sm:py-2.5 sm:pr-3 sm:pl-1">
               <div className="flex items-center gap-0.5 text-[11px] font-semibold uppercase tracking-[0.1em]">
                 <button
                   type="button"
