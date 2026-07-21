@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const heroVideoSrc = '/assets/vid/hero.mp4';
 const heroPosterSrc = '/assets/hero-still.jpg';
@@ -10,6 +11,7 @@ function isMobileWidth() {
 }
 
 export function HeroSection() {
+  const { lang } = useLang();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
