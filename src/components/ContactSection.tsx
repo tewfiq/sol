@@ -109,7 +109,7 @@ export function ContactSection() {
     >
       <div className="mx-auto max-w-6xl">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
-          Contact
+          {ft('Contact')}
         </p>
         <h2 className="mt-5 max-w-3xl text-4xl font-normal leading-[1.1] text-off-white sm:text-5xl md:text-6xl lg:text-7xl">
           {ft('Construisons le prochain produit ')}
@@ -149,7 +149,7 @@ export function ContactSection() {
             className="inline-flex items-center justify-center whitespace-nowrap rounded-2xl border border-white/25 px-5 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
           >
             <FileText size={15} strokeWidth={1.5} aria-hidden="true" />
-            <span className="ml-2">Voir le CV</span>
+            <span className="ml-2">{ft('Voir le CV')}</span>
           </a>
         </div>
 

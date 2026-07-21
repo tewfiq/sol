@@ -4,15 +4,15 @@ import { ft } from '../lib/frenchType';
 
 const degrees = [
   {
-    title: ft('DEA E-Management & TIC'),
+    title: 'DEA E-Management & TIC',
     school: 'Université Paris Dauphine',
   },
   {
-    title: ft('Maîtrise Économie Internationale'),
+    title: 'Maîtrise Économie Internationale',
     school: 'Université Paris I Panthéon-Sorbonne',
   },
   {
-    title: ft('Licence Économétrie'),
+    title: 'Licence Économétrie',
     school: 'Université Paris I Panthéon-Sorbonne',
   },
 ];
@@ -41,9 +41,9 @@ export function EducationSection() {
                 key={d.title}
                 className="border-t border-soft-border pt-5"
               >
-                <h3 className="text-xl font-medium text-ink md:text-2xl">
-                  {d.title}
-                </h3>
+                  <h3 className="text-xl font-medium text-ink md:text-2xl">
+                    {ft(d.title)}
+                  </h3>
                 <p className="mt-1 text-sm text-ink/50 md:text-base">{d.school}</p>
               </div>
             ))}
@@ -51,7 +51,7 @@ export function EducationSection() {
 
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
-              Formation professionnelle
+              {ft('Formation professionnelle')}
             </p>
             <ul className="mt-5 space-y-3">
               {training.map((t) => (

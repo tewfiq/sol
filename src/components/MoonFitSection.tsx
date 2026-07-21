@@ -5,21 +5,15 @@ import { ft } from '../lib/frenchType';
 const columns = [
   {
     title: 'Exigence de conception',
-    text: ft(
-      'Transformer des besoins complexes en expériences simples et accessibles.',
-    ),
+    text: 'Transformer des besoins complexes en expériences simples et accessibles.',
   },
   {
     title: 'Culture du conseil',
-    text: ft(
-      'Relier décideurs, métiers, designers et équipes techniques.',
-    ),
+    text: 'Relier décideurs, métiers, designers et équipes techniques.',
   },
   {
     title: 'Pratique AI Native',
-    text: ft(
-      'Utiliser l\u2019IA pour explorer, prototyper et produire sans déléguer le jugement.',
-    ),
+    text: 'Utiliser l\u2019IA pour explorer, prototyper et produire sans déléguer le jugement.',
   },
 ];
 
@@ -59,9 +53,9 @@ export function MoonFitSection() {
               key={col.title}
               className="border-t border-soft-border pt-6"
             >
-              <h3 className="text-lg font-medium text-ink">{col.title}</h3>
+              <h3 className="text-lg font-medium text-ink">{ft(col.title)}</h3>
               <p className="mt-3 text-sm leading-relaxed text-ink/70 md:text-base">
-                {col.text}
+                {ft(col.text)}
               </p>
             </div>
           ))}

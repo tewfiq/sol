@@ -39,7 +39,7 @@ export function MetricsSection() {
 
         <div className="mt-12 border-t border-soft-border pt-6 md:mt-16">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
-            Pratique courante
+            {ft('Pratique courante')}
           </p>
           <FrenchText
             as="p"
@@ -51,7 +51,7 @@ export function MetricsSection() {
 
         <div className="mt-12 border-t border-soft-border pt-6 md:mt-16">
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
-            Activité GitHub
+            {ft('Activité GitHub')}
           </p>
           <div className="overflow-x-auto">
             <img

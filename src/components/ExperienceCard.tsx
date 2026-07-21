@@ -1,5 +1,6 @@
 import type { Experience } from '../data/experiences';
 import { useReveal } from '../hooks/useReveal';
+import { ft } from '../lib/frenchType';
 
 export function ExperienceCard({ experience }: { experience: Experience }) {
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
@@ -88,7 +89,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
                 aria-hidden="true"
                 className="mt-[7px] h-0.5 w-0.5 shrink-0 rounded-full bg-primary-green/50"
               />
-              <span>{item}</span>
+              <span>{ft(item)}</span>
             </li>
           ))}
         </ul>
@@ -100,7 +101,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
             aria-hidden="true"
           />
           <p className="text-sm leading-relaxed text-ink/60 italic md:text-[15px]">
-            {experience.highlight}
+            {ft(experience.highlight)}
           </p>
         </div>
       </div>

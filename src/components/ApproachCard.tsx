@@ -3,6 +3,7 @@ import {
   APPROACH_STACK_STEP,
   type ApproachCard as ApproachCardData,
 } from '../data/approach';
+import { ft } from '../lib/frenchType';
 
 export function ApproachCard({
   card,
@@ -55,7 +56,7 @@ export function ApproachCard({
             </span>
             <span className="h-1 w-1 rounded-full bg-sage/50" aria-hidden="true" />
             <span className="text-xs font-semibold uppercase tracking-[0.16em] text-off-white/80">
-              {card.title}
+              {ft(card.title)}
             </span>
           </div>
 
@@ -70,7 +71,7 @@ export function ApproachCard({
         {/* Main content */}
         <div className="relative mt-8 flex flex-1 flex-col md:mt-10">
           <h3 className="max-w-3xl text-[1.75rem] font-medium leading-[1.12] tracking-tight text-off-white sm:text-4xl md:text-[2.65rem] md:leading-[1.08]">
-            {card.heading}
+            {ft(card.heading)}
           </h3>
 
           <div
@@ -79,7 +80,7 @@ export function ApproachCard({
           />
 
           <p className="mt-6 max-w-2xl text-base font-normal leading-[1.55] text-off-white/75 sm:text-lg md:mt-8 md:text-xl md:leading-[1.5]">
-            {card.description}
+            {ft(card.description)}
           </p>
 
           <ul className="mt-auto flex flex-wrap gap-2 pt-8 md:pt-10">

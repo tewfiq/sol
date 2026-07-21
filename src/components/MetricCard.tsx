@@ -1,6 +1,7 @@
 import type { Metric } from '../data/metrics';
 import { useReveal } from '../hooks/useReveal';
 import { MetricBrandIcon } from './MetricIcons';
+import { ft } from '../lib/frenchType';
 
 interface MetricCardProps {
   metric: Metric;
@@ -52,7 +53,7 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
           featured ? 'text-sage' : 'text-ink/70'
         }`}
       >
-        {metric.label}
+        {ft(metric.label)}
       </p>
 
       {metric.caption && (

@@ -94,7 +94,7 @@ export function ApproachCardsSection() {
           <aside className="lg:sticky lg:top-0 lg:flex lg:h-svh lg:flex-col lg:justify-between lg:py-28">
             <div>
               <p className="text-xs font-semibold uppercase tracking-[0.2em] text-sage">
-                La méthode
+                {ft('La méthode')}
               </p>
               <h2 className="mt-4 whitespace-pre-line text-2xl font-normal leading-[1.2] text-off-white sm:text-3xl lg:text-[2.5rem] lg:leading-[1.15]">
                 {ft(
@@ -111,7 +111,7 @@ export function ApproachCardsSection() {
               </FrenchText>
 
               <nav
-                aria-label="Navigation de l'approche"
+                aria-label={ft("Navigation de l'approche")}
                 className="mt-10 hidden lg:block"
               >
                 <ul className="space-y-1.5">
@@ -144,7 +144,7 @@ export function ApproachCardsSection() {
                             }`}
                             aria-hidden="true"
                           />
-                          <span>{label}</span>
+                          <span>{ft(label)}</span>
                         </button>
                       </li>
                     );

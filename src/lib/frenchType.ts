@@ -2,9 +2,19 @@
  * French typesetting helpers.
  * Prevents short function words (et, de, la, à, pas…) from sitting alone
  * at the end of a line by gluing them to the following word with NBSP.
+ *
+ * Also handles EN translation when the language is set via setLanguage().
  */
 
 const NBSP = '\u00A0';
+
+let _lang: 'fr' | 'en' = 'fr';
+let _en: Record<string, string> = {};
+
+export function setLanguage(lang: 'fr' | 'en', translations: Record<string, string>) {
+  _lang = lang;
+  _en = translations;
+}
 
 /** Words that must stay with the next word (never end a line alone). */
 const GLUE_WORDS = new Set([
@@ -160,5 +170,14 @@ export function glueShortWords(text: string): string {
   return result;
 }
 
-/** Alias used across the landing copy. */
-export const ft = glueShortWords;
+/**
+ * Translate + typeset.
+ * If EN and a translation exists, returns the English text.
+ * For FR (or untranslated strings), applies French NBSP rules.
+ */
+export function ft(text: string): string {
+  if (_lang === 'en' && _en[text]) {
+    return _en[text];
+  }
+  return glueShortWords(text);
+}

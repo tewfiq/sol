@@ -33,7 +33,7 @@ export function ExperienceSection() {
 
         <div className="mt-16 border-t border-white/8 pt-10">
           <p className="mb-8 text-[11px] font-semibold uppercase tracking-[0.2em] text-sage/50">
-            Entreprises & organisations accompagnées
+            {ft('Entreprises & organisations accompagnées')}
           </p>
           <img
             src="/partners/partners-dark.webp"

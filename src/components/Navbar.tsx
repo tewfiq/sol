@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const navLinks = [
   { label: 'Approche', href: '#approche' },
@@ -12,6 +13,7 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
+  const { lang, toggle } = useLang();
 
   useEffect(() => {
     if (open) {
@@ -43,26 +45,39 @@ export function Navbar() {
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
       <div className="pointer-events-auto mx-auto max-w-6xl px-6 pt-5 md:px-10 md:pt-6">
-        <nav
-          className="flex flex-col items-start"
-          aria-label="Navigation principale"
-        >
-          <div className="flex items-center gap-3 rounded-2xl bg-off-white/95 px-4 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:px-5 sm:py-2.5">
-            <a
-              href="#top"
-              onClick={(e) => {
-                e.preventDefault();
-                handleNavClick('#top');
-              }}
-              className="flex items-baseline gap-2"
-            >
-              <span className="text-base font-semibold tracking-tight text-ink sm:text-lg">
-                Tewfiq Ferahi
-              </span>
-              <span className="hidden text-[10px] font-medium uppercase tracking-[0.18em] text-ink/50 sm:inline">
-                AI Native Product Design
-              </span>
-            </a>
+          <nav
+            className="flex flex-col items-start"
+            aria-label={ft('Navigation principale')}
+          >
+            <div className="flex items-center gap-2 rounded-2xl bg-off-white/95 px-3 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:px-4 sm:py-2.5">
+              <button
+                type="button"
+                onClick={toggle}
+                aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}
+                className="flex h-7 items-center gap-0.5 rounded-lg border border-soft-border px-2 text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-green"
+              >
+                <span className={lang === 'fr' ? 'text-ink' : 'text-ink/35'}>FR</span>
+                <span className="text-ink/20">/</span>
+                <span className={lang === 'en' ? 'text-ink' : 'text-ink/35'}>EN</span>
+              </button>
+
+              <span aria-hidden="true" className="h-4 w-px bg-soft-border" />
+
+              <a
+                href="#top"
+                onClick={(e) => {
+                  e.preventDefault();
+                  handleNavClick('#top');
+                }}
+                className="flex items-baseline gap-2"
+              >
+                <span className="text-base font-semibold tracking-tight text-ink sm:text-lg">
+                  Tewfiq Ferahi
+                </span>
+                <span className="hidden text-[10px] font-medium uppercase tracking-[0.18em] text-ink/50 sm:inline">
+                  AI Native Product Design
+                </span>
+              </a>
 
             <span aria-hidden="true" className="h-5 w-px bg-soft-border" />
 
@@ -71,7 +86,7 @@ export function Navbar() {
               onClick={() => setOpen((v) => !v)}
               aria-expanded={open}
               aria-controls="nav-dropdown"
-              aria-label={open ? 'Fermer le menu' : 'Ouvrir le menu'}
+              aria-label={open ? ft('Fermer le menu') : ft('Ouvrir le menu')}
               className="flex h-8 w-8 items-center justify-center rounded-full text-ink transition-colors hover:bg-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-green"
             >
               <span className="relative block h-3.5 w-4">
@@ -114,7 +129,7 @@ export function Navbar() {
                     }}
                     className="block rounded-xl px-4 py-2.5 text-left text-sm font-medium text-ink transition-colors hover:bg-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-green"
                   >
-                    {link.label}
+                    {ft(link.label)}
                   </a>
                 </li>
               ))}

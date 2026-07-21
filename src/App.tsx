@@ -8,23 +8,26 @@ import { MoonFitSection } from './components/MoonFitSection';
 import { TeachingSection } from './components/TeachingSection';
 import { EducationSection } from './components/EducationSection';
 import { ContactSection } from './components/ContactSection';
+import { LangProvider } from './lib/i18n/context';
 
 function App() {
   return (
-    <div className="min-h-screen bg-off-white text-ink">
-      <Navbar />
-      <main>
-        <HeroSection />
-        <BlockingPointSection />
-        <ApproachCardsSection />
-        <ExperienceSection />
-        <MetricsSection />
-        <MoonFitSection />
-        <TeachingSection />
-        <EducationSection />
-        <ContactSection />
-      </main>
-    </div>
+    <LangProvider>
+      <div className="min-h-screen bg-off-white text-ink">
+        <Navbar />
+        <main>
+          <HeroSection />
+          <BlockingPointSection />
+          <ApproachCardsSection />
+          <ExperienceSection />
+          <MetricsSection />
+          <MoonFitSection />
+          <TeachingSection />
+          <EducationSection />
+          <ContactSection />
+        </main>
+      </div>
+    </LangProvider>
   );
 }
 

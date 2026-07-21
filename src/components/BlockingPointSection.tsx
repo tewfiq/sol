@@ -2,20 +2,19 @@ import { useReveal } from '../hooks/useReveal';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 
-const statement = ft(
-  'Le défi n\u2019est pas d\u2019ajouter une fonctionnalité IA, mais de concevoir des expériences utiles, compréhensibles et contrôlables.',
-);
+const statement =
+  'Le défi n\u2019est pas d\u2019ajouter une fonctionnalité IA, mais de concevoir des expériences utiles, compréhensibles et contrôlables.';
 
 const pillars = [
-  { label: 'Usages', description: ft('Comprendre avant d\u2019automatiser.') },
-  { label: 'Confiance', description: ft('Rendre l\u2019IA lisible et maîtrisable.') },
-  { label: 'Systèmes', description: ft('Préserver cohérence, accessibilité et contrôle.') },
+  { label: 'Usages', description: 'Comprendre avant d\u2019automatiser.' },
+  { label: 'Confiance', description: 'Rendre l\u2019IA lisible et maîtrisable.' },
+  { label: 'Systèmes', description: 'Préserver cohérence, accessibilité et contrôle.' },
 ];
 
 const keyQuestions = [
-  ft('Comment intégrer l\u2019IA sans complexifier l\u2019expérience\u202f?'),
-  ft('Comment concevoir la confiance, l\u2019erreur et la reprise en main\u202f?'),
-  ft('Comment passer du prototype au produit réellement adopté\u202f?'),
+  'Comment intégrer l\u2019IA sans complexifier l\u2019expérience\u202f?',
+  'Comment concevoir la confiance, l\u2019erreur et la reprise en main\u202f?',
+  'Comment passer du prototype au produit réellement adopté\u202f?',
 ];
 
 export function BlockingPointSection() {
@@ -27,9 +26,9 @@ export function BlockingPointSection() {
       className="relative z-10 -mt-6 rounded-t-[25px] bg-cream px-6 py-20 md:px-10 md:py-32"
     >
       <div className="mx-auto max-w-6xl">
-        <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
-          Le changement de paradigme
-        </p>
+          <p className="text-xs font-semibold uppercase tracking-[0.2em] text-primary-green">
+            {ft('Le changement de paradigme')}
+          </p>
 
         <h2 className="mt-4 max-w-3xl text-3xl font-normal leading-[1.15] text-ink sm:text-4xl md:text-5xl">
           {ft('Le design change. Sa responsabilité demeure.')}
@@ -50,15 +49,15 @@ export function BlockingPointSection() {
           }`}
         >
           <div>
-            <p className="text-lg leading-relaxed text-ink md:text-xl">
-              {statement}
-            </p>
+              <p className="text-lg leading-relaxed text-ink md:text-xl">
+                {ft(statement)}
+              </p>
 
             <div className="mt-10 flex flex-wrap gap-6">
               {pillars.map((p) => (
                 <div key={p.label}>
                   <p className="text-base font-medium text-ink">{p.label}</p>
-                  <p className="mt-1 text-sm text-ink/50">{p.description}</p>
+                  <p className="mt-1 text-sm text-ink/50">{ft(p.description)}</p>
                 </div>
               ))}
             </div>
@@ -66,7 +65,7 @@ export function BlockingPointSection() {
 
           <div className="flex flex-col justify-start">
             <p className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-ink/50">
-              Trois questions structurantes
+              {ft('Trois questions structurantes')}
             </p>
             <ul className="space-y-4">
               {keyQuestions.map((q, i) => (
@@ -74,7 +73,7 @@ export function BlockingPointSection() {
                   key={i}
                   className="text-lg leading-relaxed text-ink md:text-xl"
                 >
-                  {q}
+                  {ft(q)}
                 </li>
               ))}
             </ul>

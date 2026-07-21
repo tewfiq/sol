@@ -87,7 +87,7 @@ export function TeachingSection() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16">
           <div>
             <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
-              Établissements
+              {ft('Établissements')}
             </p>
             <img
               src="/partners/schools-light.webp"
@@ -97,7 +97,7 @@ export function TeachingSection() {
             />
 
             <p className="mt-10 text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
-              Sujets enseignés
+              {ft('Sujets enseignés')}
             </p>
             <div className="mt-5 flex flex-wrap gap-2">
               {topics.map((topic) => (

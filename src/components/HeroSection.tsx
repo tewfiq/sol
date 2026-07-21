@@ -189,7 +189,7 @@ export function HeroSection() {
             <div className="mt-6 flex flex-wrap gap-2">
               {['12+ ans d\'expérience', 'Conseil', 'Grands comptes', 'Secteur public'].map((chip) => (
                 <span key={chip} className="rounded-lg border border-white/[0.1] bg-white/[0.05] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-off-white/70 backdrop-blur-sm">
-                  {chip}
+                  {ft(chip)}
                 </span>
               ))}
             </div>
@@ -214,7 +214,7 @@ export function HeroSection() {
                 onClick={handleCvClick}
                 className="whitespace-nowrap rounded-2xl border border-white/25 px-5 py-2.5 text-xs font-medium text-off-white transition-colors hover:border-white/50 focus:outline-none focus-visible:ring-2 focus-visible:ring-white sm:px-6 sm:py-3 sm:text-sm"
               >
-                Voir mon CV
+                {ft('Voir mon CV')}
               </button>
             </div>
 
