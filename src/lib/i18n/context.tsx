@@ -1,4 +1,4 @@
-import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
+import { createContext, useContext, useState, useCallback, useEffect, type ReactNode } from 'react';
 import { setLanguage } from '../frenchType';
 import { en } from './en';
 
@@ -13,28 +13,41 @@ function getInitialLang(): Lang {
   return 'fr';
 }
 
+const initialLang = getInitialLang();
+setLanguage(initialLang, en);
+
 const LangContext = createContext<{
   lang: Lang;
+  setLang: (lang: Lang) => void;
   toggle: () => void;
 }>({
-  lang: 'fr',
+  lang: initialLang,
+  setLang: () => {},
   toggle: () => {},
 });
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(getInitialLang);
+  const [lang, setLangState] = useState<Lang>(initialLang);
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, lang);
-    setLanguage(lang, en);
   }, [lang]);
 
+  const setLang = useCallback((next: Lang) => {
+    setLanguage(next, en);
+    setLangState(next);
+  }, []);
+
   const toggle = useCallback(() => {
-    setLang((prev) => (prev === 'fr' ? 'en' : 'fr'));
+    setLangState((prev) => {
+      const next = prev === 'fr' ? 'en' : 'fr';
+      setLanguage(next, en);
+      return next;
+    });
   }, []);
 
   return (
-    <LangContext.Provider value={{ lang, toggle }}>
+    <LangContext.Provider value={{ lang, setLang, toggle }}>
       {children}
     </LangContext.Provider>
   );

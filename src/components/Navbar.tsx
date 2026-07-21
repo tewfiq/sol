@@ -13,7 +13,7 @@ const navLinks = [
 
 export function Navbar() {
   const [open, setOpen] = useState(false);
-  const { lang, toggle } = useLang();
+  const { lang, setLang } = useLang();
 
   useEffect(() => {
     if (open) {
@@ -49,17 +49,28 @@ export function Navbar() {
             className="flex flex-col items-start"
             aria-label={ft('Navigation principale')}
           >
-            <div className="flex items-center gap-2 rounded-2xl bg-off-white/95 px-3 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:px-4 sm:py-2.5">
-              <button
-                type="button"
-                onClick={toggle}
-                aria-label={lang === 'fr' ? 'Switch to English' : 'Passer en français'}
-                className="flex h-7 items-center gap-0.5 rounded-lg border border-soft-border px-2 text-[11px] font-semibold uppercase tracking-[0.1em] transition-colors hover:bg-cream focus:outline-none focus-visible:ring-2 focus-visible:ring-primary-green"
-              >
-                <span className={lang === 'fr' ? 'text-ink' : 'text-ink/35'}>FR</span>
-                <span className="text-ink/20">/</span>
-                <span className={lang === 'en' ? 'text-ink' : 'text-ink/35'}>EN</span>
-              </button>
+            <div className="flex items-center gap-1 rounded-2xl bg-off-white/95 py-2 pr-2 pl-1 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:gap-2 sm:py-2.5 sm:pr-3 sm:pl-1.5">
+              <div className="flex items-center gap-0.5 text-[11px] font-semibold uppercase tracking-[0.1em]">
+                <button
+                  type="button"
+                  onClick={() => setLang('fr')}
+                  className={`transition-colors duration-200 focus:outline-none ${
+                    lang === 'fr' ? 'text-ink' : 'text-ink/30 hover:text-ink/60'
+                  }`}
+                >
+                  FR
+                </button>
+                <span className="text-ink/15 mx-px" aria-hidden="true">/</span>
+                <button
+                  type="button"
+                  onClick={() => setLang('en')}
+                  className={`transition-colors duration-200 focus:outline-none ${
+                    lang === 'en' ? 'text-ink' : 'text-ink/30 hover:text-ink/60'
+                  }`}
+                >
+                  EN
+                </button>
+              </div>
 
               <span aria-hidden="true" className="h-4 w-px bg-soft-border" />
 
