@@ -3,6 +3,9 @@ import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 import { useLang } from '../lib/i18n/context';
 
+const IS_MOBILE =
+  typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+
 const topics = [
   'Product Design',
   'UX Research',
@@ -55,11 +58,12 @@ export function TeachingSection() {
       {/* Slideshow */}
       <div className="mx-auto mt-12 max-w-6xl overflow-hidden px-6 md:mt-16 md:px-10">
         <div
-          className="flex gap-3 hover:[animation-play-state:paused]"
-          style={{
-            animation: 'marquee 90s linear infinite',
-            width: 'max-content',
-          }}
+          className={`flex gap-3 ${IS_MOBILE ? '' : 'hover:[animation-play-state:paused]'}`}
+          style={
+            IS_MOBILE
+              ? { width: 'max-content' }
+              : { animation: 'marquee 90s linear infinite', width: 'max-content' }
+          }
           aria-hidden="true"
         >
           {[...slides, ...slides].map((slide, i) => (
@@ -71,7 +75,6 @@ export function TeachingSection() {
                 src={slide.src}
                 alt={slide.alt}
                 className="h-full w-full object-cover"
-                loading="lazy"
                 draggable="false"
               />
             </div>
@@ -95,7 +98,6 @@ export function TeachingSection() {
               src="/partners/schools-light.webp"
               alt={ft("ECV Paris, Digital College, EDC Paris Business School, Ascencia, École Conte")}
               className="mt-5 w-full"
-              loading="lazy"
             />
 
             <p className="mt-10 text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">

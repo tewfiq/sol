@@ -31,7 +31,7 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
       )}
 
       <div
-        className={`mb-5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl transition-all duration-300 group-hover:scale-110 ${
+        className={`mb-5 flex h-11 w-11 shrink-0 items-center justify-center rounded-xl md:transition-all md:duration-300 md:group-hover:scale-110 ${
           featured
             ? 'bg-white/[0.07] text-sage ring-1 ring-white/[0.08]'
             : 'bg-cream text-primary-green ring-1 ring-soft-border'

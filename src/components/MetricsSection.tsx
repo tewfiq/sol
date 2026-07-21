@@ -60,7 +60,6 @@ export function MetricsSection() {
               src="https://ghchart.rshah.org/tewfiq"
               alt={ft("Graphique des contributions GitHub")}
               className="block h-[157px]"
-              loading="lazy"
             />
           </div>
           <a

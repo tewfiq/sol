@@ -89,7 +89,7 @@ export function ApproachCard({
             {card.cues.map((cue) => (
               <li
                 key={cue}
-                className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/55 transition-all duration-300 hover:border-white/[0.15] hover:bg-white/[0.08] hover:text-off-white/85 md:text-[13px]"
+                className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/55 md:transition-all md:duration-300 md:hover:border-white/[0.15] md:hover:bg-white/[0.08] md:hover:text-off-white/85 md:text-[13px]"
               >
                 {ft(cue)}
               </li>

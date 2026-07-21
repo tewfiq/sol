@@ -41,7 +41,6 @@ export function ExperienceSection() {
             src="/partners/partners-dark.webp"
             alt={ft("Logos des entreprises et organisations accompagnées")}
             className="w-full opacity-50"
-            loading="lazy"
           />
         </div>
       </div>

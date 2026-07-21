@@ -11,7 +11,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <article
       ref={ref}
-      className={`group flex flex-col rounded-[1.75rem] border border-soft-border/60 bg-white shadow-sm md:transition-all md:duration-500 md:ease-out md:hover:-translate-y-1 md:hover:shadow-[0_16px_48px_-12px_rgba(15,30,46,0.1)] ${
+      className={`group relative flex flex-col rounded-[1.75rem] border border-soft-border/60 bg-white shadow-sm md:transition-all md:duration-500 md:ease-out md:hover:-translate-y-1 md:hover:shadow-[0_16px_48px_-12px_rgba(15,30,46,0.1)] ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >

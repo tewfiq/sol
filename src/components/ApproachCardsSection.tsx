@@ -19,7 +19,10 @@ export function ApproachCardsSection() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   // Active nav item = card currently resting at the sticky stack line
+  // Only runs on lg+ where sticky cards are active
   useEffect(() => {
+    if (!window.matchMedia('(min-width: 1024px)').matches) return;
+
     const container = cardsRef.current;
     if (!container) return;
 
@@ -81,7 +84,7 @@ export function ApproachCardsSection() {
   return (
     <section id="methode" className="relative overflow-clip bg-deep-green">
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-fixed bg-center"
+        className="absolute inset-0 -z-10 bg-cover bg-scroll bg-center md:bg-fixed"
         style={{ backgroundImage: `url(${sectionBackground})` }}
         aria-hidden="true"
       />
