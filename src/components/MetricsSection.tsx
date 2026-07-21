@@ -54,13 +54,10 @@ export function MetricsSection() {
             Activité GitHub
           </p>
           <div className="overflow-x-auto">
-            <iframe
-              frameBorder="0"
-              height="157"
-              width="691"
-              src="https://git-graph.vercel.app/embed/tewfiq?showColorLegend=true&showWeekdayLabels=true&showMonthLabels=true&showTotalCount=true&blockMargin=2&blockRadius=0&blockSize=10&fontSize=14&weekStart=4&year=2026"
-              className="block max-w-full"
-              title="GitHub contribution graph"
+            <img
+              src="https://ghchart.rshah.org/tewfiq"
+              alt="Graphique des contributions GitHub"
+              className="block h-[157px]"
               loading="lazy"
             />
           </div>
