@@ -12,10 +12,21 @@ function FooterScrollVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
+  const [enableVideo, setEnableVideo] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth >= 1024,
+  );
   const seekingRef = useRef(false);
   const rafRef = useRef(0);
 
   useEffect(() => {
+    const media = window.matchMedia('(min-width: 1024px)');
+    const onChange = () => setEnableVideo(media.matches);
+    media.addEventListener('change', onChange);
+    return () => media.removeEventListener('change', onChange);
+  }, []);
+
+  useEffect(() => {
+    if (!enableVideo) return;
     let cancelled = false;
     fetch(footerVideoSrc)
       .then((r) => (r.ok ? r.blob() : Promise.reject()))
@@ -26,7 +37,7 @@ function FooterScrollVideo() {
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enableVideo]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -75,10 +86,10 @@ function FooterScrollVideo() {
           src={footerPosterSrc}
           alt=""
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
-          style={{ opacity: ready ? 0 : 1 }}
+          style={{ opacity: enableVideo && ready ? 0 : 1 }}
           aria-hidden="true"
         />
-        {blobUrl && (
+        {enableVideo && blobUrl && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"

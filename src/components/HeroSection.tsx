@@ -6,31 +6,31 @@ import { useLang } from '../lib/i18n/context';
 const heroVideoSrc = '/assets/vid/hero.mp4';
 const heroPosterSrc = '/assets/hero-still.jpg';
 
-function isMobileWidth() {
-  return typeof window !== 'undefined' && window.innerWidth < 768;
+function isCompactWidth() {
+  return typeof window !== 'undefined' && window.innerWidth < 1024;
 }
 
 export function HeroSection() {
-  const { lang } = useLang();
+  useLang();
   const containerRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
   const copyRef = useRef<HTMLDivElement>(null);
   const progressRef = useRef(0);
   const blobUrlRef = useRef<string | null>(null);
 
-  const [isMobile, setIsMobile] = useState(isMobileWidth);
+  const [isCompact, setIsCompact] = useState(isCompactWidth);
   const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [videoReady, setVideoReady] = useState(false);
 
   useEffect(() => {
-    const onResize = () => setIsMobile(isMobileWidth());
+    const onResize = () => setIsCompact(isCompactWidth());
     window.addEventListener('resize', onResize);
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
   // Desktop only: load video — try blob for seekability, fallback direct URL
   useEffect(() => {
-    if (isMobile) return;
+    if (isCompact) return;
     let cancelled = false;
 
     const setSource = (src: string) => {
@@ -55,20 +55,20 @@ export function HeroSection() {
       clearTimeout(timer);
       if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current);
     };
-  }, [isMobile]);
+  }, [isCompact]);
 
   const handleVideoReady = () => setVideoReady(true);
 
   // Desktop only: safety timeout for videoReady
   useEffect(() => {
-    if (videoReady || isMobile) return;
+    if (videoReady || isCompact) return;
     const t = setTimeout(() => setVideoReady(true), 8000);
     return () => clearTimeout(t);
-  }, [videoReady, isMobile]);
+  }, [videoReady, isCompact]);
 
   // Desktop only: scroll → smooth video scrub via RAF loop (no React re-renders)
   useEffect(() => {
-    if (isMobile) return;
+    if (isCompact) return;
     const video = videoRef.current;
     if (!video || !videoReady) return;
 
@@ -111,7 +111,7 @@ export function HeroSection() {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
     };
-  }, [videoReady, isMobile]);
+  }, [videoReady, isCompact]);
 
   const handleCta = () => {
     document
@@ -128,11 +128,11 @@ export function HeroSection() {
       id="top"
       ref={containerRef}
       className="relative bg-deep-green"
-      style={isMobile ? undefined : { height: '300vh' }}
+      style={isCompact ? undefined : { height: '300vh' }}
     >
       <div
         className={
-          isMobile
+          isCompact
             ? 'relative min-h-dvh w-full overflow-hidden'
             : 'sticky top-0 min-h-dvh w-full overflow-hidden'
         }
@@ -142,12 +142,12 @@ export function HeroSection() {
           src={heroPosterSrc}
           alt=""
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
-          style={{ opacity: isMobile ? 1 : videoReady ? 0 : 1 }}
+          style={{ opacity: isCompact ? 1 : videoReady ? 0 : 1 }}
           aria-hidden="true"
         />
 
         {/* Desktop only: scrubbed video */}
-        {!isMobile && videoSrc && (
+        {!isCompact && videoSrc && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
@@ -168,7 +168,7 @@ export function HeroSection() {
         <div
           ref={copyRef}
           className="relative z-10 flex min-h-dvh flex-col justify-center px-6 pb-16 pt-28 md:px-10 md:pb-32 md:pt-48"
-          style={isMobile ? undefined : { opacity: 1, transform: 'translateY(0)' }}
+          style={isCompact ? undefined : { opacity: 1, transform: 'translateY(0)' }}
         >
           <div className="mx-auto w-full max-w-6xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-off-white/80">

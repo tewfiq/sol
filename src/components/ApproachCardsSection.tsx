@@ -84,7 +84,7 @@ export function ApproachCardsSection() {
   return (
     <section id="methode" className="relative overflow-clip bg-deep-green">
       <div
-        className="absolute inset-0 -z-10 bg-cover bg-scroll bg-center md:bg-fixed"
+        className="absolute inset-0 -z-10 bg-cover bg-scroll bg-center lg:bg-fixed"
         style={{ backgroundImage: `url(${sectionBackground})` }}
         aria-hidden="true"
       />

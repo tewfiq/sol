@@ -3,8 +3,8 @@ import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 import { useLang } from '../lib/i18n/context';
 
-const IS_MOBILE =
-  typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches;
+const IS_COMPACT_VIEWPORT =
+  typeof window !== 'undefined' && window.matchMedia('(max-width: 1023px)').matches;
 
 const topics = [
   'Product Design',
@@ -58,15 +58,15 @@ export function TeachingSection() {
       {/* Slideshow */}
       <div className="mx-auto mt-12 max-w-6xl overflow-hidden px-6 md:mt-16 md:px-10">
         <div
-          className={`flex gap-3 ${IS_MOBILE ? '' : 'hover:[animation-play-state:paused]'}`}
+          className={`flex gap-3 ${IS_COMPACT_VIEWPORT ? '' : 'hover:[animation-play-state:paused]'}`}
           style={
-            IS_MOBILE
+            IS_COMPACT_VIEWPORT
               ? { width: 'max-content' }
               : { animation: 'marquee 90s linear infinite', width: 'max-content' }
           }
           aria-hidden="true"
         >
-          {[...slides, ...slides].map((slide, i) => (
+          {(IS_COMPACT_VIEWPORT ? slides : [...slides, ...slides]).map((slide, i) => (
             <div
               key={i}
               className="h-64 w-[340px] shrink-0 overflow-hidden rounded-2xl sm:h-72 sm:w-[400px]"
