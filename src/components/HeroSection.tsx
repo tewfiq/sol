@@ -118,7 +118,7 @@ export function HeroSection() {
   };
 
   const handleCvClick = () => {
-    window.open('/CV_Tewfiq_Ferahi_Onepoint_2026_light.pdf', '_blank');
+    window.open('/CV_Tewfiq_Ferahi_Onepoint_2026.pdf', '_blank');
   };
 
   return (
