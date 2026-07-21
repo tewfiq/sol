@@ -44,7 +44,7 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="pointer-events-auto mx-auto max-w-6xl pt-5 md:pt-6">
+      <div className="pointer-events-auto mx-auto max-w-6xl px-6 pt-5 md:px-10 md:pt-6">
           <nav
             className="flex flex-col items-start"
             aria-label={ft('Navigation principale')}

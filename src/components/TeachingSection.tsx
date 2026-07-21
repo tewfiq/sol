@@ -82,7 +82,7 @@ export function TeachingSection() {
       {/* Content grid */}
       <div
         ref={ref}
-        className={`mx-auto mt-12 max-w-6xl px-6 transition-all duration-700 ease-out md:mt-16 md:px-10 ${
+        className={`mx-auto mt-12 max-w-6xl px-6 md:mt-16 md:px-10 md:transition-all md:duration-700 md:ease-out ${
           visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
         }`}
       >

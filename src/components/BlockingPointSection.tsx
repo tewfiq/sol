@@ -46,7 +46,7 @@ export function BlockingPointSection() {
 
         <div
           ref={ref}
-          className={`mt-12 grid grid-cols-1 gap-12 transition-all duration-700 ease-out md:mt-16 md:grid-cols-2 md:gap-20 ${
+          className={`mt-12 grid grid-cols-1 gap-12 md:mt-16 md:grid-cols-2 md:gap-20 md:transition-all md:duration-700 md:ease-out ${
             visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >

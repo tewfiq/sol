@@ -17,10 +17,10 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
   return (
     <div
       ref={ref}
-      className={`group flex flex-col rounded-2xl p-6 transition-all duration-500 ease-out md:p-8 ${
+      className={`group flex flex-col rounded-2xl p-6 md:p-8 md:transition-all md:duration-500 md:ease-out ${
         featured
-          ? 'bg-deep-green ring-1 ring-white/[0.06] hover:-translate-y-1.5 hover:shadow-[0_20px_56px_-12px_rgba(23,42,28,0.5)]'
-          : 'border border-soft-border bg-gradient-to-br from-cream/50 to-white hover:-translate-y-1.5 hover:border-primary-green/20 hover:shadow-[0_8px_32px_-4px_rgba(23,32,24,0.1)]'
+          ? 'bg-deep-green ring-1 ring-white/[0.06] md:hover:-translate-y-1.5 md:hover:shadow-[0_20px_56px_-12px_rgba(23,42,28,0.5)]'
+          : 'border border-soft-border bg-gradient-to-br from-cream/50 to-white md:hover:-translate-y-1.5 md:hover:border-primary-green/20 md:hover:shadow-[0_8px_32px_-4px_rgba(23,32,24,0.1)]'
       } ${visible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'} ${className}`}
     >
       {featured && (

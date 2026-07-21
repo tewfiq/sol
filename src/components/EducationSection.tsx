@@ -33,7 +33,7 @@ export function EducationSection() {
 
         <div
           ref={ref}
-          className={`mt-8 grid grid-cols-1 gap-10 transition-all duration-700 ease-out md:mt-12 md:grid-cols-[1.4fr_1fr] md:gap-16 ${
+          className={`mt-8 grid grid-cols-1 gap-10 md:mt-12 md:grid-cols-[1.4fr_1fr] md:gap-16 md:transition-all md:duration-700 md:ease-out ${
             visible ? 'translate-y-0 opacity-100' : 'translate-y-6 opacity-0'
           }`}
         >

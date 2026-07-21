@@ -46,7 +46,7 @@ export function MoonFitSection() {
 
         <div
           ref={ref}
-          className={`mt-12 grid grid-cols-1 gap-8 transition-all duration-700 ease-out md:mt-16 md:grid-cols-3 md:gap-10 ${
+          className={`mt-12 grid grid-cols-1 gap-8 md:mt-16 md:grid-cols-3 md:gap-10 md:transition-all md:duration-700 md:ease-out ${
             visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
