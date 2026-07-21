@@ -2,6 +2,7 @@ import { metrics } from '../data/metrics';
 import { MetricCard } from './MetricCard';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const bento: { featured: boolean; className: string }[] = [
   { featured: true, className: 'sm:col-span-2 lg:col-span-2' },
@@ -13,6 +14,7 @@ const bento: { featured: boolean; className: string }[] = [
 ];
 
 export function MetricsSection() {
+  useLang();
   return (
     <section id="preuves" className="bg-cream px-6 py-20 md:px-10 md:py-32">
       <div className="mx-auto max-w-6xl">
@@ -56,7 +58,7 @@ export function MetricsSection() {
           <div className="overflow-x-auto">
             <img
               src="https://ghchart.rshah.org/tewfiq"
-              alt="Graphique des contributions GitHub"
+              alt={ft("Graphique des contributions GitHub")}
               className="block h-[157px]"
               loading="lazy"
             />

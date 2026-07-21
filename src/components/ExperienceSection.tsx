@@ -2,8 +2,10 @@ import { experiences } from '../data/experiences';
 import { ExperienceCard } from './ExperienceCard';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 export function ExperienceSection() {
+  useLang();
   return (
     <section
       id="experience"
@@ -37,7 +39,7 @@ export function ExperienceSection() {
           </p>
           <img
             src="/partners/partners-dark.webp"
-            alt="Logos des entreprises et organisations accompagnées"
+            alt={ft("Logos des entreprises et organisations accompagnées")}
             className="w-full opacity-50"
             loading="lazy"
           />

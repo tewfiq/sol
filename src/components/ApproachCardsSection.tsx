@@ -8,11 +8,13 @@ import {
 import { ft } from '../lib/frenchType';
 import { ApproachCard } from './ApproachCard';
 import { FrenchText } from './FrenchText';
+import { useLang } from '../lib/i18n/context';
 
 const sectionBackground =
   'https://images.higgs.ai/?default=1&output=webp&url=https%3A%2F%2Fd8j0ntlcm91z4.cloudfront.net%2Fuser_38xzZboKViGWJOttwIXH07lWA1P%2Fhf_20260709_082449_46df5cc4-ad98-4541-9236-a2659c1478a4.png&w=1920&q=85';
 
 export function ApproachCardsSection() {
+  useLang();
   const cardsRef = useRef<HTMLDivElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { Mail, FileText, MapPin, Phone, Globe } from 'lucide-react';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const footerVideoSrc = '/assets/vid/footer.mp4';
 const footerPosterSrc = '/assets/footer-still.jpg';
@@ -94,14 +95,14 @@ function FooterScrollVideo() {
   );
 }
 
-const contactItems = [
-  { icon: MapPin, label: 'Paris, France' },
-  { icon: Mail, label: 'tewfiqonline@gmail.com', href: 'mailto:tewfiqonline@gmail.com' },
-  { icon: Phone, label: '+33 7 88 10 42 46', href: 'tel:+33788104246' },
-  { icon: Globe, label: 'Français · Anglais' },
-];
-
 export function ContactSection() {
+  useLang();
+  const contactItems = [
+    { icon: MapPin, label: 'Paris, France' },
+    { icon: Mail, label: 'tewfiqonline@gmail.com', href: 'mailto:tewfiqonline@gmail.com' },
+    { icon: Phone, label: '+33 7 88 10 42 46', href: 'tel:+33788104246' },
+    { icon: Globe, label: ft('Français · Anglais') },
+  ];
   return (
     <section
       id="contact"
@@ -192,7 +193,7 @@ export function ContactSection() {
           Tewfiq Ferahi — Lead AI Native Product Designer
         </p>
         <p className="mt-2 text-xs uppercase tracking-[0.2em] text-off-white/40">
-          Product Design · Design Systems · IA générative
+            {ft('Product Design · Design Systems · IA générative')}
         </p>
         <p className="mt-3 text-xs text-off-white/30">
           © 2026 Tewfiq Ferahi

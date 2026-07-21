@@ -198,7 +198,7 @@ export function HeroSection() {
             <div className="mt-2 flex flex-wrap gap-2">
               {['Product Discovery', 'UX Research', 'Design Systems', 'Prototypage', 'Design Engineering'].map((chip) => (
                 <span key={chip} className="rounded-lg border border-white/[0.07] bg-white/[0.03] px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.1em] text-off-white/50 backdrop-blur-sm">
-                  {chip}
+                  {ft(chip)}
                 </span>
               ))}
             </div>

@@ -1,6 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const statement =
   'Le défi n\u2019est pas d\u2019ajouter une fonctionnalité IA, mais de concevoir des expériences utiles, compréhensibles et contrôlables.';
@@ -18,6 +19,7 @@ const keyQuestions = [
 ];
 
 export function BlockingPointSection() {
+  useLang();
   const { ref, visible } = useReveal<HTMLDivElement>(0.2);
 
   return (

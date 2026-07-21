@@ -1,6 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const topics = [
   'Product Design',
@@ -31,6 +32,7 @@ const slides = [
 ];
 
 export function TeachingSection() {
+  useLang();
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (
@@ -91,7 +93,7 @@ export function TeachingSection() {
             </p>
             <img
               src="/partners/schools-light.webp"
-              alt="ECV Paris, Digital College, EDC Paris Business School, Ascencia, École Conte"
+              alt={ft("ECV Paris, Digital College, EDC Paris Business School, Ascencia, École Conte")}
               className="mt-5 w-full"
               loading="lazy"
             />
@@ -105,7 +107,7 @@ export function TeachingSection() {
                   key={topic}
                   className="rounded-xl border border-soft-border bg-light-surface px-3.5 py-1.5 text-sm font-medium text-ink"
                 >
-                  {topic}
+                  {ft(topic)}
                 </span>
               ))}
             </div>

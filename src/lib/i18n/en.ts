@@ -207,6 +207,70 @@ export const en: Record<string, string> = {
   "Disponible pour rejoindre une équipe et concevoir des produits AI Native à fort impact.":
     "Available to join a team and design high-impact AI Native products.",
 
+  // ── New: cue chips ──
+  "Utilisateurs":
+    "Users",
+  "Parcours":
+    "Journeys",
+  "Besoins":
+    "Needs",
+  "Contraintes":
+    "Constraints",
+  "Valeur":
+    "Value",
+  "Faisabilité":
+    "Feasibility",
+  "Risques":
+    "Risks",
+  "Adoption":
+    "Adoption",
+  "Interfaces":
+    "Interfaces",
+  "Prototype":
+    "Prototype",
+  "Design System":
+    "Design System",
+  "Tests":
+    "Tests",
+  "Contrôle":
+    "Control",
+  "Itération":
+    "Iteration",
+  "Documentation":
+    "Documentation",
+  "Formation":
+    "Training",
+  "Autonomie":
+    "Autonomy",
+  "Durabilité":
+    "Sustainability",
+  "Étape":
+    "Step",
+
+  // ── New: hero second-row chips ──
+  "Prototypage":
+    "Prototyping",
+
+  // ── New: metric values ──
+  "12+ ans":
+    "12+ years",
+  "Plusieurs centaines":
+    "Several hundred",
+
+  // ── New: contact / footer ──
+  "Français · Anglais":
+    "French · English",
+  "Product Design · Design Systems · IA générative":
+    "Product Design · Design Systems · Generative AI",
+
+  // ── New: alt texts ──
+  "Logos des entreprises et organisations accompagnées":
+    "Logos of companies and organisations served",
+  "Graphique des contributions GitHub":
+    "GitHub contribution chart",
+  "ECV Paris, Digital College, EDC Paris Business School, Ascencia, École Conte":
+    "ECV Paris, Digital College, EDC Paris Business School, Ascencia, École Conte",
+
   // ── Experience content items ──
   "Multi-clients":
     "Multi-client",

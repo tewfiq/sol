@@ -1,6 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const degrees = [
   {
@@ -20,6 +21,7 @@ const degrees = [
 const training = ['Design Sprint 2.0 — Le Laptop', 'Design Thinking — Thiga'];
 
 export function EducationSection() {
+  useLang();
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (

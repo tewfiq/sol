@@ -4,6 +4,7 @@ import {
   type ApproachCard as ApproachCardData,
 } from '../data/approach';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 export function ApproachCard({
   card,
@@ -12,6 +13,7 @@ export function ApproachCard({
   card: ApproachCardData;
   index: number;
 }) {
+  useLang();
   const stickyTop = APPROACH_STACK_BASE + index * APPROACH_STACK_STEP;
   const step = String(index + 1).padStart(2, '0');
 
@@ -64,7 +66,7 @@ export function ApproachCard({
             className="hidden text-[10px] font-medium uppercase tracking-[0.22em] text-off-white/30 sm:inline"
             aria-hidden="true"
           >
-            Étape {index + 1}/5
+            {ft('Étape')} {index + 1}/5
           </span>
         </div>
 
@@ -89,7 +91,7 @@ export function ApproachCard({
                 key={cue}
                 className="rounded-lg border border-white/[0.06] bg-white/[0.03] px-3.5 py-1.5 text-xs font-medium tracking-wide text-off-white/55 transition-all duration-300 hover:border-white/[0.15] hover:bg-white/[0.08] hover:text-off-white/85 md:text-[13px]"
               >
-                {cue}
+                {ft(cue)}
               </li>
             ))}
           </ul>

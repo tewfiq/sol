@@ -2,6 +2,7 @@ import type { Metric } from '../data/metrics';
 import { useReveal } from '../hooks/useReveal';
 import { MetricBrandIcon } from './MetricIcons';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 interface MetricCardProps {
   metric: Metric;
@@ -10,6 +11,7 @@ interface MetricCardProps {
 }
 
 export function MetricCard({ metric, featured = false, className = '' }: MetricCardProps) {
+  useLang();
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (
@@ -45,7 +47,7 @@ export function MetricCard({ metric, featured = false, className = '' }: MetricC
             : 'text-ink text-3xl md:text-[38px]'
         }`}
       >
-        {metric.value}
+        {ft(metric.value)}
       </p>
 
       <p

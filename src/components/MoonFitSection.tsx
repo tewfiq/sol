@@ -1,6 +1,7 @@
 import { useReveal } from '../hooks/useReveal';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 const columns = [
   {
@@ -18,6 +19,7 @@ const columns = [
 ];
 
 export function MoonFitSection() {
+  useLang();
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
 
   return (

@@ -1,8 +1,10 @@
 import type { Experience } from '../data/experiences';
 import { useReveal } from '../hooks/useReveal';
 import { ft } from '../lib/frenchType';
+import { useLang } from '../lib/i18n/context';
 
 export function ExperienceCard({ experience }: { experience: Experience }) {
+  useLang();
   const { ref, visible } = useReveal<HTMLDivElement>(0.15);
   const isDarkLogo = experience.logoTheme === 'dark';
 
