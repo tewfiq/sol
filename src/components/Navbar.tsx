@@ -44,12 +44,12 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="pointer-events-auto mx-auto max-w-6xl px-6 pt-5 md:px-10 md:pt-6">
+      <div className="pointer-events-auto mx-auto max-w-6xl pt-5 md:pt-6">
           <nav
             className="flex flex-col items-start"
             aria-label={ft('Navigation principale')}
           >
-            <div className="flex items-center gap-1 rounded-2xl bg-off-white/95 py-2 pr-2 pl-0.5 shadow-lg ring-1 ring-black/5 backdrop-blur-md sm:gap-2 sm:py-2.5 sm:pr-3 sm:pl-1">
+            <div className="flex items-center gap-1 rounded-2xl bg-off-white/95 px-6 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md md:gap-2 md:px-10 md:py-2.5">
               <div className="flex items-center gap-0.5 text-[11px] font-semibold uppercase tracking-[0.1em]">
                 <button
                   type="button"
