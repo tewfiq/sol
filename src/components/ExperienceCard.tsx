@@ -8,72 +8,77 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
   return (
     <article
       ref={ref}
-      className={`group flex flex-col rounded-2xl border border-soft-border bg-white transition-all duration-500 ease-out hover:-translate-y-1.5 hover:border-primary-green/20 hover:shadow-[0_8px_32px_-4px_rgba(23,32,24,0.1)] ${
+      className={`group flex flex-col rounded-[1.75rem] border border-soft-border/60 bg-white shadow-sm transition-all duration-500 ease-out hover:-translate-y-1 hover:shadow-[0_16px_48px_-12px_rgba(15,30,46,0.1)] ${
         visible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
       }`}
     >
-      {/* Brand band — logos get real visual weight */}
-      <div className="flex items-stretch gap-3 border-b border-soft-border p-5 md:gap-4 md:p-6">
-        <div
-          className={`flex min-h-[4.5rem] flex-1 items-center justify-start rounded-2xl px-5 py-4 md:min-h-[5.25rem] md:px-6 ${
-            isDarkLogo
-              ? 'bg-ink ring-1 ring-ink/10'
-              : 'bg-cream ring-1 ring-soft-border'
-          }`}
-        >
-          {experience.logo ? (
+      {/* Rim light */}
+      <div
+        className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/60 to-transparent"
+        aria-hidden="true"
+      />
+
+      {/* Logo + période */}
+      <div className="flex items-start justify-between gap-4 px-6 pt-6 md:px-8 md:pt-8">
+        {experience.logo ? (
+          <div
+            className={`flex items-center justify-center rounded-xl px-4 py-2.5 ${
+              isDarkLogo
+                ? 'bg-ink ring-1 ring-ink/10'
+                : 'bg-cream ring-1 ring-soft-border'
+            }`}
+          >
             <img
               src={experience.logo}
               alt=""
               aria-hidden="true"
-              className="h-9 w-auto max-w-[min(100%,14rem)] object-contain object-left md:h-11 md:max-w-[16rem]"
+              className="h-7 w-auto max-w-[8rem] object-contain md:h-8 md:max-w-[10rem]"
               loading="lazy"
             />
-          ) : (
-            <div className="flex items-center gap-3">
-              <span
-                className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-primary-green/10 text-sm font-semibold tracking-tight text-primary-green ring-1 ring-primary-green/15"
-                aria-hidden="true"
-              >
-                C&T
-              </span>
-              <span className="text-sm font-medium tracking-wide text-ink/70">
-                Multi-clients
-              </span>
-            </div>
-          )}
-        </div>
-
-        {experience.period && (
-          <div className="flex shrink-0 flex-col items-end justify-center rounded-2xl bg-cream/60 px-3.5 py-3 ring-1 ring-soft-border md:px-4">
-            <span className="text-[10px] font-semibold uppercase tracking-[0.16em] text-ink/40">
-              Période
+          </div>
+        ) : (
+          <div className="flex items-center gap-2.5">
+            <span
+              className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary-green/10 text-xs font-semibold tracking-tight text-primary-green ring-1 ring-primary-green/15"
+              aria-hidden="true"
+            >
+              C&T
             </span>
-            <span className="mt-1 text-sm font-semibold tabular-nums text-primary-green md:text-base">
-              {experience.period}
+            <span className="text-xs font-medium tracking-wide text-ink/50">
+              Multi-clients
             </span>
           </div>
         )}
+
+        {experience.period && (
+          <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-cream/70 px-3.5 py-1.5 text-[11px] font-semibold uppercase tracking-[0.1em] text-ink/50 ring-1 ring-soft-border/60">
+            <span
+              className="h-1 w-1 rounded-full bg-primary-green/40"
+              aria-hidden="true"
+            />
+            {experience.period}
+          </span>
+        )}
       </div>
 
-      <div className="flex flex-1 flex-col p-6 md:p-8">
+      <div className="flex flex-1 flex-col px-6 pb-6 pt-5 md:px-8 md:pb-8 md:pt-6">
         <h3 className="text-xl font-medium leading-snug tracking-tight text-ink md:text-2xl">
           {experience.organization}
         </h3>
 
         {experience.role && (
-          <p className="mt-2 text-sm font-medium text-primary-green md:text-[15px]">
+          <p className="mt-1.5 text-sm font-medium text-primary-green md:text-[15px]">
             {experience.role}
           </p>
         )}
 
         {experience.clients && (
-          <p className="mt-4 text-sm leading-relaxed text-ink/50">
+          <p className="mt-3 text-xs leading-relaxed text-ink/40">
             {experience.clients}
           </p>
         )}
 
-        <ul className="mt-6 space-y-2.5">
+        <ul className="mt-5 space-y-2">
           {experience.content.map((item) => (
             <li
               key={item}
@@ -81,16 +86,23 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
             >
               <span
                 aria-hidden="true"
-                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-primary-green"
+                className="mt-[7px] h-0.5 w-0.5 shrink-0 rounded-full bg-primary-green/50"
               />
               <span>{item}</span>
             </li>
           ))}
         </ul>
 
-        <p className="mt-auto border-t border-soft-border pt-5 text-base font-medium text-ink md:mt-8 md:text-lg">
-          {experience.highlight}
-        </p>
+        {/* Highlight traité en citation */}
+        <div className="relative mt-auto pl-4 pt-6 md:pl-5">
+          <div
+            className="absolute bottom-0 left-0 top-0 w-px bg-gradient-to-b from-primary-green/30 via-primary-green/15 to-transparent"
+            aria-hidden="true"
+          />
+          <p className="text-sm leading-relaxed text-ink/60 italic md:text-[15px]">
+            {experience.highlight}
+          </p>
+        </div>
       </div>
     </article>
   );
