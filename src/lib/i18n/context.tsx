@@ -1,7 +1,17 @@
 import { createContext, useContext, useState, useEffect, useCallback, type ReactNode } from 'react';
 import { setLanguage } from '../frenchType';
+import { en } from './en';
 
 export type Lang = 'fr' | 'en';
+
+const STORAGE_KEY = 'moon-lang';
+
+function getInitialLang(): Lang {
+  if (typeof window === 'undefined') return 'fr';
+  const stored = localStorage.getItem(STORAGE_KEY);
+  if (stored === 'en' || stored === 'fr') return stored;
+  return 'fr';
+}
 
 const LangContext = createContext<{
   lang: Lang;
@@ -12,10 +22,11 @@ const LangContext = createContext<{
 });
 
 export function LangProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>('fr');
+  const [lang, setLang] = useState<Lang>(getInitialLang);
 
   useEffect(() => {
-    import('./en').then(({ en }) => setLanguage(lang, en));
+    localStorage.setItem(STORAGE_KEY, lang);
+    setLanguage(lang, en);
   }, [lang]);
 
   const toggle = useCallback(() => {

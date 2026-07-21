@@ -174,10 +174,15 @@ export function glueShortWords(text: string): string {
  * Translate + typeset.
  * If EN and a translation exists, returns the English text.
  * For FR (or untranslated strings), applies French NBSP rules.
+ *
+ * The lookup key is normalised so Unicode variants (’ vs ')
+ * don't break matching against en.ts keys.
  */
 export function ft(text: string): string {
-  if (_lang === 'en' && _en[text]) {
-    return _en[text];
+  // Normalise so ’ → ' and narrow NBSP → space, matching en.ts keys
+  const key = text.normalize('NFC').replace(/\u2019/g, "'").replace(/\u202f/g, ' ');
+  if (_lang === 'en' && _en[key]) {
+    return _en[key];
   }
   return glueShortWords(text);
 }

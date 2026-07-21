@@ -46,7 +46,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
               C&T
             </span>
             <span className="text-xs font-medium tracking-wide text-ink/50">
-              Multi-clients
+              {ft('Multi-clients')}
             </span>
           </div>
         )}
@@ -57,7 +57,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
               className="h-1 w-1 rounded-full bg-primary-green/40"
               aria-hidden="true"
             />
-            {experience.period}
+            {ft(experience.period)}
           </span>
         )}
       </div>
@@ -69,7 +69,7 @@ export function ExperienceCard({ experience }: { experience: Experience }) {
 
         {experience.role && (
           <p className="mt-1.5 text-sm font-medium text-primary-green md:text-[15px]">
-            {experience.role}
+            {ft(experience.role)}
           </p>
         )}
 

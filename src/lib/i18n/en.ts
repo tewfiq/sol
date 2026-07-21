@@ -208,6 +208,20 @@ export const en: Record<string, string> = {
     "Available to join a team and design high-impact AI Native products.",
 
   // ── Experience content items ──
+  "Multi-clients":
+    "Multi-client",
+  "Lead UX Designer de transition":
+    "Transition Lead UX Designer",
+  "2013 \u2013 Aujourd'hui":
+    "2013 \u2013 Present",
+  "Déc. 2023 \u2013 Mai 2024":
+    "Dec. 2023 \u2013 May 2024",
+  "Product Discovery, UX Research et conception end-to-end":
+    "Product Discovery, UX Research, and end-to-end design",
+  "Product Discovery et recherche utilisateur":
+    "Product Discovery and user research",
+  "Architecture fonctionnelle":
+    "Functional architecture",
   "Design Systems, prototypes fonctionnels et workflows assistés par IA":
     "Design Systems, functional prototypes, and AI-assisted workflows",
   "Collaboration avec Produit, Data, Tech et directions métiers":

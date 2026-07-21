@@ -56,7 +56,7 @@ export function BlockingPointSection() {
             <div className="mt-10 flex flex-wrap gap-6">
               {pillars.map((p) => (
                 <div key={p.label}>
-                  <p className="text-base font-medium text-ink">{p.label}</p>
+                  <p className="text-base font-medium text-ink">{ft(p.label)}</p>
                   <p className="mt-1 text-sm text-ink/50">{ft(p.description)}</p>
                 </div>
               ))}
