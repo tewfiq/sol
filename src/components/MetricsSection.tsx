@@ -61,6 +61,28 @@ export function MetricsSection() {
               loading="lazy"
             />
           </div>
+          <a
+            href="https://github.com/tewfiq"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-ink/40 transition-colors hover:text-ink/70"
+          >
+            github.com/tewfiq
+            <svg
+              width="10"
+              height="10"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              aria-hidden="true"
+            >
+              <path d="M7 17L17 7" />
+              <path d="M7 7h10v10" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>
