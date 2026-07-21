@@ -17,7 +17,7 @@ export function ApproachCard({
   return (
     <div
       data-index={index}
-      className="sticky"
+      className="lg:sticky"
       style={{ top: stickyTop, zIndex: index + 1 }}
     >
       <article className="group relative flex min-h-[min(72vh,38rem)] flex-col overflow-hidden rounded-[1.75rem] bg-deep-green p-7 shadow-[0_28px_80px_-28px_rgba(0,0,0,0.65)] ring-1 ring-white/[0.06] md:min-h-[min(74vh,40rem)] md:p-10 lg:p-12">

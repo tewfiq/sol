@@ -48,6 +48,23 @@ export function MetricsSection() {
             Figma · Claude · ChatGPT · Gemini · Figma Make · Google Stitch · Cursor · Codex · MCP Figma
           </FrenchText>
         </div>
+
+        <div className="mt-12 border-t border-soft-border pt-6 md:mt-16">
+          <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
+            Activité GitHub
+          </p>
+          <div className="overflow-x-auto">
+            <iframe
+              frameBorder="0"
+              height="157"
+              width="691"
+              src="https://git-graph.vercel.app/embed/tewfiq?showColorLegend=true&showWeekdayLabels=true&showMonthLabels=true&showTotalCount=true&blockMargin=2&blockRadius=0&blockSize=10&fontSize=14&weekStart=4&year=2026"
+              className="block max-w-full"
+              title="GitHub contribution graph"
+              loading="lazy"
+            />
+          </div>
+        </div>
       </div>
     </section>
   );

@@ -101,6 +101,18 @@ function ProductIcon(props: IconProps) {
   );
 }
 
+function NotionIcon(props: IconProps) {
+  return (
+    <svg
+      {...svgProps(props)}
+      fill="currentColor"
+      viewBox="0 0 24 24"
+    >
+      <path d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466l1.823 1.447Zm.793 3.08v13.904c0 .747.373.933 1.121.84l14.733-.84c.747-.046.793-.607.793-.793V5.817c0-.42-.28-.607-.793-.56l-15.2.887c-.747.047-.654.513-.654.513v.607Zm12.265 1.12c.28.42.187.887-.326 1.027L14.7 10.45l-4.378 5.984c-.42.467-1.026.514-1.446.047l-1.4-1.866c-.233-.28-.186-.793.327-1.027l2.26-1.214 4.643-5.89c.42-.514 1.073-.467 1.4.093l1.4 1.866h.001Z" />
+    </svg>
+  );
+}
+
 const metricIconMap: Record<
   MetricIconName,
   (props: IconProps) => JSX.Element
@@ -114,6 +126,7 @@ const metricIconMap: Record<
   people: PeopleIcon,
   org: OrgIcon,
   product: ProductIcon,
+  notion: NotionIcon,
 };
 
 export function MetricBrandIcon({

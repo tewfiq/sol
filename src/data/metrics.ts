@@ -9,7 +9,8 @@ export type MetricIconName =
   | 'tools'
   | 'people'
   | 'org'
-  | 'product';
+  | 'product'
+  | 'notion';
 
 export interface Metric {
   value: string;
@@ -29,7 +30,7 @@ export const metrics: Metric[] = [
     value: '1 100+',
     label: ft('solutions IA évaluées'),
     caption: '',
-    icon: 'tools',
+    icon: 'notion',
   },
   {
     value: 'Plusieurs centaines',
