@@ -12,7 +12,7 @@ const footerPosterSrc = '/assets/footer-still.jpg';
 function FooterScrollVideo() {
   const wrapRef = useRef<HTMLDivElement>(null);
   const videoRef = useRef<HTMLVideoElement>(null);
-  const [blobUrl, setBlobUrl] = useState<string | null>(null);
+  const [videoSrc, setVideoSrc] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
   const [isCompact, setIsCompact] = useState(
     () => typeof window !== 'undefined' && window.innerWidth < 1024,
@@ -29,19 +29,24 @@ function FooterScrollVideo() {
   }, []);
 
   useEffect(() => {
+    if (isCompact) {
+      setReady(false);
+      setVideoSrc(footerMobileVideoSrc);
+      return;
+    }
+
     let cancelled = false;
-    const source = isCompact ? footerMobileVideoSrc : footerVideoSrc;
 
     setReady(false);
-    setBlobUrl(null);
+    setVideoSrc(null);
 
-    fetch(source)
+    fetch(footerVideoSrc)
       .then((r) => (r.ok ? r.blob() : Promise.reject()))
       .then((blob) => {
         if (!cancelled) {
           const url = URL.createObjectURL(blob);
           blobUrlRef.current = url;
-          setBlobUrl(url);
+          setVideoSrc(url);
         }
       })
       .catch(() => {});
@@ -104,20 +109,22 @@ function FooterScrollVideo() {
           style={{ opacity: ready ? 0 : 1 }}
           aria-hidden="true"
         />
-        {blobUrl && (
+        {videoSrc && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
-            src={blobUrl}
+            src={videoSrc}
             muted
             playsInline
             preload="auto"
-            onLoadedMetadata={() => setReady(true)}
+            onLoadedData={() => setReady(true)}
+            onCanPlay={() => setReady(true)}
+            onPlaying={() => setReady(true)}
             loop={isCompact}
             aria-hidden="true"
           />
         )}
-        {isCompact && ready && (
+        {isCompact && videoSrc && (
           <HoldToPlayControl
             videoRef={videoRef}
             className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
