@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 import { useLang } from '../lib/i18n/context';
+import { HoldToPlayControl } from './HoldToPlayControl';
 
 const heroVideoSrc = '/assets/vid/hero.mp4';
 const heroMobileVideoSrc = '/assets/vid/hero-mobile.mp4';
@@ -69,6 +70,7 @@ export function HeroSection() {
   // Scroll → video scrub via one RAF, without React re-renders. The time delta
   // guard is important on mobile: redundant seeks are expensive and cause lag.
   useEffect(() => {
+    if (isCompact) return;
     const video = videoRef.current;
     if (!video || !videoReady) return;
 
@@ -114,7 +116,7 @@ export function HeroSection() {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
     };
-  }, [videoReady]);
+  }, [videoReady, isCompact]);
 
   const handleCta = () => {
     document
@@ -131,10 +133,12 @@ export function HeroSection() {
       id="top"
       ref={containerRef}
       className="relative bg-deep-green"
-      style={{ height: isCompact ? '220svh' : '300vh' }}
+      style={isCompact ? undefined : { height: '300vh' }}
     >
       <div
-        className="sticky top-0 min-h-dvh w-full overflow-hidden"
+        className={isCompact
+          ? 'relative min-h-dvh w-full overflow-hidden'
+          : 'sticky top-0 min-h-dvh w-full overflow-hidden'}
       >
         {/* Poster (always visible on mobile) */}
         <img
@@ -156,12 +160,20 @@ export function HeroSection() {
             preload="auto"
             onCanPlay={handleVideoReady}
             onLoadedData={handleVideoReady}
+            loop={isCompact}
             aria-hidden="true"
           />
         )}
 
         {/* Dark overlay */}
         <div className="absolute inset-0 bg-black/30" aria-hidden="true" />
+
+        {isCompact && videoReady && (
+          <HoldToPlayControl
+            videoRef={videoRef}
+            className="absolute bottom-20 left-1/2 -translate-x-1/2"
+          />
+        )}
 
         {/* Copy content */}
         <div

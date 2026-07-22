@@ -3,8 +3,10 @@ import { Mail, FileText, MapPin, Phone, Globe } from 'lucide-react';
 import { FrenchText } from './FrenchText';
 import { ft } from '../lib/frenchType';
 import { useLang } from '../lib/i18n/context';
+import { HoldToPlayControl } from './HoldToPlayControl';
 
 const footerVideoSrc = '/assets/vid/footer.mp4';
+const footerMobileVideoSrc = '/assets/vid/footer-mobile.mp4';
 const footerPosterSrc = '/assets/footer-still.jpg';
 
 function FooterScrollVideo() {
@@ -12,36 +14,49 @@ function FooterScrollVideo() {
   const videoRef = useRef<HTMLVideoElement>(null);
   const [blobUrl, setBlobUrl] = useState<string | null>(null);
   const [ready, setReady] = useState(false);
-  const [enableVideo, setEnableVideo] = useState(
-    () => typeof window !== 'undefined' && window.innerWidth >= 1024,
+  const [isCompact, setIsCompact] = useState(
+    () => typeof window !== 'undefined' && window.innerWidth < 1024,
   );
+  const blobUrlRef = useRef<string | null>(null);
   const seekingRef = useRef(false);
   const rafRef = useRef(0);
 
   useEffect(() => {
     const media = window.matchMedia('(min-width: 1024px)');
-    const onChange = () => setEnableVideo(media.matches);
+    const onChange = () => setIsCompact(!media.matches);
     media.addEventListener('change', onChange);
     return () => media.removeEventListener('change', onChange);
   }, []);
 
   useEffect(() => {
-    if (!enableVideo) return;
     let cancelled = false;
-    fetch(footerVideoSrc)
+    const source = isCompact ? footerMobileVideoSrc : footerVideoSrc;
+
+    setReady(false);
+    setBlobUrl(null);
+
+    fetch(source)
       .then((r) => (r.ok ? r.blob() : Promise.reject()))
       .then((blob) => {
-        if (!cancelled) setBlobUrl(URL.createObjectURL(blob));
+        if (!cancelled) {
+          const url = URL.createObjectURL(blob);
+          blobUrlRef.current = url;
+          setBlobUrl(url);
+        }
       })
       .catch(() => {});
     return () => {
       cancelled = true;
+      if (blobUrlRef.current) {
+        URL.revokeObjectURL(blobUrlRef.current);
+        blobUrlRef.current = null;
+      }
     };
-  }, [enableVideo]);
+  }, [isCompact]);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video || !ready) return;
+    if (!video || !ready || isCompact) return;
 
     let ticking = false;
     const onScroll = () => {
@@ -77,7 +92,7 @@ function FooterScrollVideo() {
       video.removeEventListener('seeked', onSeeked);
       cancelAnimationFrame(rafRef.current);
     };
-  }, [ready]);
+  }, [ready, isCompact]);
 
   return (
     <div ref={wrapRef} className="mt-16 overflow-hidden rounded-2xl border border-white/12">
@@ -86,10 +101,10 @@ function FooterScrollVideo() {
           src={footerPosterSrc}
           alt=""
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
-          style={{ opacity: enableVideo && ready ? 0 : 1 }}
+          style={{ opacity: ready ? 0 : 1 }}
           aria-hidden="true"
         />
-        {enableVideo && blobUrl && (
+        {blobUrl && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
@@ -98,7 +113,14 @@ function FooterScrollVideo() {
             playsInline
             preload="auto"
             onLoadedMetadata={() => setReady(true)}
+            loop={isCompact}
             aria-hidden="true"
+          />
+        )}
+        {isCompact && ready && (
+          <HoldToPlayControl
+            videoRef={videoRef}
+            className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"
           />
         )}
       </div>
