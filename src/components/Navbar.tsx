@@ -44,9 +44,9 @@ export function Navbar() {
 
   return (
     <header className="pointer-events-none fixed inset-x-0 top-0 z-50">
-      <div className="pointer-events-auto mx-auto max-w-6xl px-6 pt-5 md:px-10 md:pt-6">
+      <div className="pointer-events-auto px-6 pt-5 md:px-10 md:pt-6">
           <nav
-            className="flex flex-col items-start"
+            className="mx-auto flex max-w-6xl flex-col items-start"
             aria-label={ft('Navigation principale')}
           >
             <div className="flex items-center gap-1 rounded-2xl bg-off-white/95 px-6 py-2 shadow-lg ring-1 ring-black/5 backdrop-blur-md md:gap-2 md:px-10 md:py-2.5">
