@@ -55,13 +55,24 @@ export function MetricsSection() {
           <p className="text-xs font-semibold uppercase tracking-[0.18em] text-ink/50">
             {ft('Activité GitHub')}
           </p>
-          <div className="overflow-x-auto">
-            <img
-              src="https://ghchart.rshah.org/tewfiq"
-              alt={ft("Graphique des contributions GitHub")}
-              className="block h-[157px]"
+          <div className="relative mt-5 overflow-hidden rounded-2xl border border-soft-border bg-white shadow-sm">
+            <div className="overflow-x-auto overscroll-x-contain [scrollbar-width:thin]">
+              <img
+                src="/images/github-contributions-2026.png"
+                alt={ft("1 461 contributions GitHub en 2026, au 22 juillet")}
+                className="block h-auto w-[780px] max-w-none md:w-full"
+                width="1556"
+                height="440"
+              />
+            </div>
+            <div
+              className="pointer-events-none absolute inset-y-0 right-0 w-10 bg-gradient-to-l from-white/90 to-transparent md:hidden"
+              aria-hidden="true"
             />
           </div>
+          <p className="mt-2 text-[11px] text-ink/40 md:hidden">
+            {ft('Faire glisser pour parcourir l’année')} →
+          </p>
           <a
             href="https://github.com/tewfiq"
             target="_blank"
