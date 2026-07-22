@@ -4,6 +4,7 @@ import { ft } from '../lib/frenchType';
 import { useLang } from '../lib/i18n/context';
 
 const heroVideoSrc = '/assets/vid/hero.mp4';
+const heroMobileVideoSrc = '/assets/vid/hero-mobile.mp4';
 const heroPosterSrc = '/assets/hero-still.jpg';
 
 function isCompactWidth() {
@@ -28,16 +29,19 @@ export function HeroSection() {
     return () => window.removeEventListener('resize', onResize);
   }, []);
 
-  // Desktop only: load video — try blob for seekability, fallback direct URL
+  // Load as a blob for deterministic seeking on both touch and desktop.
   useEffect(() => {
-    if (isCompact) return;
     let cancelled = false;
+    const source = isCompact ? heroMobileVideoSrc : heroVideoSrc;
+
+    setVideoReady(false);
+    setVideoSrc(null);
 
     const setSource = (src: string) => {
       if (!cancelled) setVideoSrc(src);
     };
 
-    fetch(heroVideoSrc)
+    fetch(source)
       .then((r) => (r.ok ? r.blob() : Promise.reject()))
       .then((blob) => {
         if (!cancelled) {
@@ -46,29 +50,25 @@ export function HeroSection() {
           setVideoSrc(url);
         }
       })
-      .catch(() => setSource(heroVideoSrc));
+      .catch(() => setSource(source));
 
-    const timer = setTimeout(() => setSource(heroVideoSrc), 4000);
+    const timer = setTimeout(() => setSource(source), 4000);
 
     return () => {
       cancelled = true;
       clearTimeout(timer);
-      if (blobUrlRef.current) URL.revokeObjectURL(blobUrlRef.current);
+      if (blobUrlRef.current) {
+        URL.revokeObjectURL(blobUrlRef.current);
+        blobUrlRef.current = null;
+      }
     };
   }, [isCompact]);
 
   const handleVideoReady = () => setVideoReady(true);
 
-  // Desktop only: safety timeout for videoReady
+  // Scroll → video scrub via one RAF, without React re-renders. The time delta
+  // guard is important on mobile: redundant seeks are expensive and cause lag.
   useEffect(() => {
-    if (videoReady || isCompact) return;
-    const t = setTimeout(() => setVideoReady(true), 8000);
-    return () => clearTimeout(t);
-  }, [videoReady, isCompact]);
-
-  // Desktop only: scroll → smooth video scrub via RAF loop (no React re-renders)
-  useEffect(() => {
-    if (isCompact) return;
     const video = videoRef.current;
     if (!video || !videoReady) return;
 
@@ -90,7 +90,10 @@ export function HeroSection() {
       const settle = Math.max(0, Math.min(1, (t - 0.6) * 2.5));
       copy.style.transform = `translateY(${(rise - settle) * -25}px)`;
 
-      v.currentTime = t * (v.duration || 1);
+      const targetTime = t * (v.duration || 1);
+      if (Math.abs(v.currentTime - targetTime) >= 1 / 30) {
+        v.currentTime = targetTime;
+      }
     };
 
     const onScroll = () => {
@@ -111,7 +114,7 @@ export function HeroSection() {
       window.removeEventListener('scroll', onScroll);
       cancelAnimationFrame(rafId);
     };
-  }, [videoReady, isCompact]);
+  }, [videoReady]);
 
   const handleCta = () => {
     document
@@ -128,26 +131,22 @@ export function HeroSection() {
       id="top"
       ref={containerRef}
       className="relative bg-deep-green"
-      style={isCompact ? undefined : { height: '300vh' }}
+      style={{ height: isCompact ? '220svh' : '300vh' }}
     >
       <div
-        className={
-          isCompact
-            ? 'relative min-h-dvh w-full overflow-hidden'
-            : 'sticky top-0 min-h-dvh w-full overflow-hidden'
-        }
+        className="sticky top-0 min-h-dvh w-full overflow-hidden"
       >
         {/* Poster (always visible on mobile) */}
         <img
           src={heroPosterSrc}
           alt=""
           className="absolute inset-0 h-full w-full object-cover transition-opacity duration-300"
-          style={{ opacity: isCompact ? 1 : videoReady ? 0 : 1 }}
+          style={{ opacity: videoReady ? 0 : 1 }}
           aria-hidden="true"
         />
 
-        {/* Desktop only: scrubbed video */}
-        {!isCompact && videoSrc && (
+        {/* Scroll-scrubbed video */}
+        {videoSrc && (
           <video
             ref={videoRef}
             className="absolute inset-0 h-full w-full object-cover"
@@ -168,7 +167,7 @@ export function HeroSection() {
         <div
           ref={copyRef}
           className="relative z-10 flex min-h-dvh flex-col justify-center px-6 pb-16 pt-28 md:px-10 md:pb-32 md:pt-48"
-          style={isCompact ? undefined : { opacity: 1, transform: 'translateY(0)' }}
+          style={{ opacity: 1, transform: 'translateY(0)', willChange: 'opacity, transform' }}
         >
           <div className="mx-auto w-full max-w-6xl text-left">
             <p className="text-xs font-semibold uppercase tracking-[0.2em] text-off-white/80">

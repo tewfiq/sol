@@ -175,7 +175,7 @@ export function ApproachCardsSection() {
             </div>
           </aside>
 
-          {/* Stack viewport — each card sticks and covers the previous */}
+          {/* Stack viewport — each card sticks and covers the previous at every viewport size */}
           <div
             ref={cardsRef}
             className="relative flex flex-col gap-5 pb-6 md:gap-6 lg:gap-8 lg:pb-36 lg:pt-28"
